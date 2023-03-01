@@ -93,7 +93,7 @@ const Footer = (props: any) => {
             width: "50%",
           }}
         >
-          <div style={{width:"100%"}}>
+          <div style={{width:"90%"}}>
             <img
               src={props?.about2img?.url}
               style={{ height: "100%", width: "100%" }}
@@ -124,7 +124,7 @@ const Footer = (props: any) => {
         </div>
       </div>
       <footer className="upperfooter">
-        <div style={{ display: "flex" }}>{ufooter}</div>
+        <div style={{ display: "flex" ,width:"50%" }}>{ufooter}</div>
         <div style={{ paddingLeft: "10%", display: "flex", paddingTop: "4%" }}>
           <div style={{ paddingRight: "90px" }}>{upfooter}</div>
           <div>
