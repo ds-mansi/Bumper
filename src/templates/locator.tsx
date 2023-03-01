@@ -78,7 +78,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     title: `${
       document.c_meta_title
         ? document.c_meta_title
-        : `Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`
+        : `Bumper to Bumper Store Near Me - Find Bumper to Bumper Branch Locator Here.`
     }`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
@@ -90,7 +90,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`
+              : `View Bumper Store near you today at Bumper to Bumper. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -135,7 +135,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`
+              : `View Bumper Store near you today at Bumper to Bumper. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -146,7 +146,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_title
               ? document.c_meta_title
-              : `Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`
+              : `Bumper to Bumper Store Near Me - Find Bumper to Bumper Branch Locator Here.`
           }`,
         },
       },
@@ -171,7 +171,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `View Timber Merchants near you today at MGM Timber. We stock high-quality, robust products at competitive rates.`
+              : `View Bumper Store near you today at Bumper to Bumper. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -182,7 +182,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_title
               ? document.c_meta_title
-              : `Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`
+              : `Bumper Store Near Me - Find Bumper to Bumper Branch Locator Here.`
           }`,
         },
       },

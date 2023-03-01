@@ -371,7 +371,7 @@ export const OpenStausFunctions = {
       Date.parse(`${dateString} UTC`) - Date.parse(`${dateString} ${tz}`);
     return OpenStausFunctions.msToTime(offset);
   },
-  msToTime: (duration) => {
+  msToTime: (duration: any) => {
     let milliseconds = Math.floor((duration % 1000) / 100),
       seconds = Math.floor((duration / 1000) % 60),
       minutes = Math.floor((duration / (1000 * 60)) % 60),
@@ -412,7 +412,7 @@ export default function OpenClose(props: any) {
         </>
       ) : props.hours ? (
         //  <div class="closeing-div notHighlight" dangerouslySetInnerHTML={{__html: OpenStausFunctions.formatOpenNowString(props.hours, props.timezone)}} />
-        <div className="closeing-div notHighlight">
+        <div className="closeing-div notHighlight" >
           {/* {OpenStausFunctions.formatOpenNowString(props.hours, props.timezone)}{" "} */}
           {
             OpenStausFunctions.formatOpenNowString(props.hours, props.timezone)}

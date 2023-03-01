@@ -10,6 +10,7 @@ import { StaticData } from "../../../sites-global/staticData";
 import Holidayhours from "./Holdayhours";
 import Model from "./Model";
 import CustomMap from "./CustomMap";
+import Email from "../../images/email.svg";
 
 const Contact = (props: any) => {
   const {
@@ -85,10 +86,10 @@ const Contact = (props: any) => {
               {" "}
               <img
                 className=" "
-                src={Phonesvg}
+                src={Email}
                 width="22"
                 height="22"
-                alt="phonesvg"
+                alt="email"
               />
             </div>
         <div style={{paddingLeft:"15px"}}>
