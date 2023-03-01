@@ -645,6 +645,7 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .nearby-card .button-bx .btn {
   @apply w-[9.75rem] bg-Dark-red hover:bg-hover-btn font-second-main-font py-2.5  border-none text-white;
+  background-color: #eb0000 !important;
 }
 .nearby-card .button-bx .btn.notHighligh {
   @apply w-full md:w-[48%] ml-2 bg-white justify-start  border-none text-black underline;
@@ -1173,7 +1174,7 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .upperfooter {
   display: flex;
-  /* display: grid; */
+  width:"50%"
 }
 .site-footer
   .MuiPaper-elevation

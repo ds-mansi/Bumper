@@ -80,8 +80,21 @@ const Contact = (props: any) => {
         ) : (
           ""
         )}
-        <div style={{paddingLeft:"30px"}}>
+        <div className="flex">
+        <div className="icon">
+              {" "}
+              <img
+                className=" "
+                src={Phonesvg}
+                width="22"
+                height="22"
+                alt="phonesvg"
+              />
+            </div>
+        <div style={{paddingLeft:"15px"}}>
+          
             {emails}
+        </div>
         </div>
         {/* <ul className="">
           <li className="button-bx direction-button">

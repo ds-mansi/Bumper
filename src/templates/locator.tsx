@@ -18,6 +18,7 @@ import {stagingBaseurl, favicon, AnalyticsEnableDebugging, AnalyticsEnableTracki
 import Newsletter from "../components/locatorPage/Newsletter";
 import { JsonLd } from "react-schemaorg";
 import { StaticData } from "../../sites-global/staticData";
+import Banner from "../components/locationDetail/banner";
 import {
   AnalyticsProvider,
   AnalyticsScopeProvider,
@@ -194,6 +195,7 @@ const Locator: Template<TemplateRenderProps>= ({
         {" "}
         <AnalyticsScopeProvider name={""}>
       <PageLayout global={_site}>
+      
         <SearchHeadlessProvider
           experienceKey={AnswerExperienceConfig.experienceKey}
           locale={AnswerExperienceConfig.locale}

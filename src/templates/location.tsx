@@ -84,8 +84,7 @@ export const config: TemplateConfig = {
       "c_service",
       "c_banner",
       "c_message",
-      "c_abouts",
-      "c_about2",
+      
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -268,7 +267,7 @@ export const transformProps: TransformProps<ExternalApiData> = async (
       : data.document.displayCoordinate.longitude
   }`;
 
-  const url = `${AnswerExperienceConfig.endpoints.verticalSearch}?experienceKey=${AnswerExperienceConfig.experienceKey}&api_key=${AnswerExperienceConfig.apiKey}&v=20220511&version=${AnswerExperienceConfig.experienceVersion}&locale=${AnswerExperienceConfig.locale}&location=${location}&locationRadius=${AnswerExperienceConfig.locationRadius}&verticalKey=${AnswerExperienceConfig.verticalKey}&limit=4&retrieveFacets=true&skipSpellCheck=false&sessionTrackingEnabled=true&source=STANDARD`;
+  const url = `https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=2500&location=${data.document.yextDisplayCoordinate.latitude},${data.document.yextDisplayCoordinate.longitude}&api_key=7636b8bb589ab6337d4fc231953b4006&v=20181201&resolvePlaceholders=true&entityTypes=location&limit=4`;
   console.log(url);
   const externalApiData = (await fetch(url).then((res: any) =>
     res.json()
@@ -298,8 +297,6 @@ const Location: Template<ExternalApiRenderData> = ({
     c_banner,
     c_banner_image,
     c_canonical,
-    c_abouts,
-    c_about2,
     description,
     additionalHoursText,
     timezone,
@@ -333,64 +330,64 @@ const Location: Template<ExternalApiRenderData> = ({
     );
   });
 
-  const aboutimg = c_abouts?.map((des: any) => {
-    let Image = des.aboutImage;
-    // Getting Image URL code - starts
-    let Photo = Image.map((ImageUrl: any) => {
-      let PhotoURl = ImageUrl.url;
-      return PhotoURl;
-    });
+  // const aboutimg = c_abouts?.map((des: any) => {
+  //   let Image = des.aboutImage;
+  //   // Getting Image URL code - starts
+  //   let Photo = Image.map((ImageUrl: any) => {
+  //     let PhotoURl = ImageUrl.url;
+  //     return PhotoURl;
+  //   });
 
-    // Getting Image URL code - starts
-    return (
-      <>
-        <img src={Photo} />
-      </>
-    );
-  });
+  //   // Getting Image URL code - starts
+  //   return (
+  //     <>
+  //       <img src={Photo} />
+  //     </>
+  //   );
+  // });
 
-  const aboutCta = c_abouts?.map((cta: any) => {
-    console.log(cta.aboutCTA, "aboutCTA");
-    return (
-      <>
-        <button
-          style={{
-            border: "1px solid black",
-            backgroundColor: "black",
-            color: "white",
-            padding: "15px",
-          }}
-        >
-          <a href={cta.aboutCTA.link}>{cta.aboutCTA.label}</a>
-        </button>
-      </>
-    );
-  });
+  // const aboutCta = c_abouts?.map((cta: any) => {
+  //   console.log(cta.aboutCTA, "aboutCTA");
+  //   return (
+  //     <>
+  //       <button
+  //         style={{
+  //           border: "1px solid black",
+  //           backgroundColor: "black",
+  //           color: "white",
+  //           padding: "15px",
+  //         }}
+  //       >
+  //         <a href={cta.aboutCTA.link}>{cta.aboutCTA.label}</a>
+  //       </button>
+  //     </>
+  //   );
+  // });
 
-  const abouthead = c_abouts?.map((desc: any) => {
-    // console.log(desc.aboutHeading,"aboutHeading")
-    return (
-      <>
-        <h1 style={{ fontWeight: "bold", paddingBottom: "20px" }}>
-          {desc.aboutHeading}
-        </h1>
-      </>
-    );
-  });
+  // const abouthead = c_abouts?.map((desc: any) => {
+  //   // console.log(desc.aboutHeading,"aboutHeading")
+  //   return (
+  //     <>
+  //       <h1 style={{ fontWeight: "bold", paddingBottom: "20px" }}>
+  //         {desc.aboutHeading}
+  //       </h1>
+  //     </>
+  //   );
+  // });
   // console.log(c_abouts.abouthead,"c_abouts")
 
-  const aboutdesc = c_abouts?.map((head: any) => {
-    // console.log(head.aboutDescription,"aboutDescription")
-    return (
-      <>
-        <p style={{ paddingBottom: "20px" }}>{head.aboutDescription}</p>
-      </>
-    );
-  });
+  // const aboutdesc = c_abouts?.map((head: any) => {
+  //   // console.log(head.aboutDescription,"aboutDescription")
+  //   return (
+  //     <>
+  //       <p style={{ paddingBottom: "20px" }}>{head.aboutDescription}</p>
+  //     </>
+  //   );
+  // });
 
   // c_about2
 
-  const about2 = c_about2.about2Image;
+  // const about2 = c_about2.about2Image;
   // console.log(about2,"c_about2")
 
   // const cta2=c_about2?.about2CTA?.map((onclick:any)=>{
@@ -570,6 +567,7 @@ const Location: Template<ExternalApiRenderData> = ({
             lhead={_site?.c_lowerHeader?.lowerHeaderNav}
             licon={_site?.c_lowerHeader}
             limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
+            
           />
           <div style={{ display: "flex" }}>
             <div style={{ width: "60%" }}>
@@ -669,59 +667,11 @@ const Location: Template<ExternalApiRenderData> = ({
             </div>
           </div>
 
-          {/* About section */}
-          <div style={{ display: "flex", height: "100%" }}>
-            <div style={{ width: "50%" }}>
-              <div style={{ display: "flex" }}>
-                {aboutimg}
-
-                <div style={{ padding: "50px" }}>
-                  {abouthead}
-                  {aboutdesc}
-                  {aboutCta}
-                </div>
-              </div>
-            </div>
-            {/* about2 */}
-            <div
-              style={{
-                display: "flex",
-                backgroundColor: "black",
-                height: "auto",
-                width: "50%",
-              }}
-            >
-              <img src={about2.url} style={{ width: "80%" }} />
-              <div
-                style={{
-                  color: "white",
-                  fontWeight: "bold",
-                  padding:"50px",
-                  
-                }}
-              >
-                <h1 style={{paddingBottom: "50px" ,fontWeight:"bold"}}>{c_about2.aboutHeading2}</h1>
-                <p
-                  style={{
-                    color: "white",
-                    paddingBottom: "20px" 
-                  }}
-                >
-                  {c_about2.about2Description}
-                </p>
-                <button style={{border:"1px solid white",padding: "15px",}}>
-                  <a href={c_about2.about2CTA.link}>
-                    {c_about2.about2CTA.label}
-                  </a>
-                </button>
-              </div>
-            </div>
-          </div>
-          {/* about section end */}
+          
           <div className="nearby-sec">
             <div className="container">
               <div className="sec-title">
-                <h2 className="">{StaticData.NearStoretext}</h2>
+                <h2 style={{color:"red"}}>{StaticData.NearStoretext}</h2>
               </div>
               <div className="nearby-sec-inner">
                 {yextDisplayCoordinate ||
@@ -742,7 +692,13 @@ const Location: Template<ExternalApiRenderData> = ({
           subscribe={_site?.c_upperFooter?.subscribeCta}
           copy={_site?.c_lowerFooter}
           tandc={_site?.c_lowerFooter?.tAndC}
-        />
+          aboutimg={_site?.c_about?.aboutImage}
+          abouthead={_site?.c_about}
+          aboutcta={_site?.c_about?.aboutCTA}
+          about2img={_site?.c_about2?.about2Image}
+          abouthead2={_site?.c_about2}
+          about2cta={_site?.c_about2?.about2CTA}
+          />
       </AnalyticsProvider>
     </>
   );

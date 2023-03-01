@@ -7,6 +7,7 @@ type Props = {
     _site?: any;
     global:any;
     children?: React.ReactNode;
+    
 };
   
   const PageLayout = ({

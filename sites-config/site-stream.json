@@ -11,7 +11,10 @@
       "c_lowerHeader",
       "c_upperFooter",
       "c_upperHeader",
-      "c_lowerFooter"
+      "c_lowerFooter",
+      "c_banner2",
+      "c_about",
+      "c_about2"
       
   ],
   "localization": {
