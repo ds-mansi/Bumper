@@ -229,6 +229,7 @@ body.menu-opened {
 }
 .locator-main {
   @apply mt-10  align-bottom w-full max-w-[87.5rem] mx-auto px-0 md:px-4 lg:px-6 xl:px-0;
+  padding-bottom: 50px;
 }
 .left-listing {
   @apply w-full md:w-[30rem] lg:w-[33.6875rem] float-left;
@@ -337,6 +338,7 @@ body.mapView .mobile-btns .btn.mapBtn {
 }
 .location .button-bx .btn {
   @apply w-[9.75rem] bg-Dark-red font-second-main-font text-lg  border-none text-white;
+  background-color: #eb0000;
 }
 .location .button-bx .btn.notHighligh {
   @apply w-full md:w-[48%] bg-transparent justify-start mt-0  border-none text-black underline;
@@ -560,6 +562,7 @@ table.day-hrs .time-b {
 }
 .icon-row h6 {
   @apply font-normal text-red m-0 leading-5 text-base md:text-lg md:leading-5 mb-1.5;
+  color: #eb0000;
 }
 .availablity-content {
   /*  border-l border-nav-link*/
@@ -658,6 +661,7 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .map-section .button-bx .btn {
   @apply w-[11.25rem] md:w-[9.25rem] lg:w-[11.25rem]  bg-Dark-red hover:bg-hover-btn font-second-main-font  border-none text-white;
+  background-color: #eb0000;
 }
 .map-section .button-bx .btn.notHighligh {
   @apply w-full md:w-[48%] bg-white justify-start  border-none text-black underline;
@@ -679,12 +683,18 @@ nav[aria-label="Pagination"] button:disabled {
 /* breadcrumb */
 .breadcrumb {
   @apply mt-2 text-nav-link py-2;
+  background-color: #eb0000;
+  padding: 20px;
+  margin-top: 0px;
+  color: white;
 }
 .breadcrumb ul {
   @apply flex flex-wrap items-center;
 }
 .breadcrumb ul li {
   @apply md:mr-2.5 font-second-main-font text-dark-gray flex items-center text-base md:text-base;
+  color:white;
+  font-size: larger
 }
 .breadcrumb ul li .home {
   @apply underline;
@@ -1174,7 +1184,6 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .upperfooter {
   display: flex;
- 
 }
 .site-footer
   .MuiPaper-elevation
@@ -1388,15 +1397,14 @@ nav[aria-label="Pagination"] button:disabled {
   width: 100%;
 }
 
-.tandc-footer{
+.tandc-footer {
   display: flex;
- 
 }
-.term{
+.term {
   margin-right: 3.5rem;
   float: right;
-  color:#9c9fa7;
-  margin-top:75px;
+  color: #9c9fa7;
+  margin-top: 75px;
 }
 .city-location .button-bx {
   @apply ml-0 lg:ml-6 flex-row;
