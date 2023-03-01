@@ -97,7 +97,7 @@ const Footer = (props: any) => {
           <div style={{width:"90%"}}>
             <img
               src={props?.about2img?.url}
-              style={{ height: "100%", width: "100%" }}
+              style={{ height:"100%"}}
             />
           </div>
           <div

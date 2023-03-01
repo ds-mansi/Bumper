@@ -158,7 +158,7 @@ const SearchLayout = (props: any): JSX.Element => {
     if (searchKey[0].value != "") {
       getCoordinates(Search);
     }
-    console.log(locationinbuit.length, "fisttimedispaly");
+    // console.log(locationinbuit.length, "fisttimedispaly");
     if (locationinbuit.length == 0) {
       setDisplaymsg(true);
     } else {
@@ -256,6 +256,21 @@ const SearchLayout = (props: any): JSX.Element => {
         <div className="search-bx">
           <div className="location-with-filter">
             <h1 className="">{StaticData.FindLocationtext}</h1>
+            <button
+              className="useMyLocation"
+              title="Search with your current location!"
+              id="useLocation"
+              onClick={onClick}
+            >
+              <span
+                className="icon"
+                dangerouslySetInnerHTML={{ __html: UseMylocationsvg }}
+              />
+              <span className="underline hover:no-underline">
+                {" "}
+                {StaticData.Usemylocation}
+              </span>
+            </button>
           </div>
 
           <div className="search-field">
@@ -300,7 +315,7 @@ const SearchLayout = (props: any): JSX.Element => {
                 // },
               ]}
               handleInputValue={handleInputValue}
-              handleSetUserShareLocation={handleSetUserShareLocation}
+              //handleSetUserShareLocation={handleSetUserShareLocation}
             />
 
             <button
@@ -314,22 +329,11 @@ const SearchLayout = (props: any): JSX.Element => {
           </div>
 
           <div className="fliter-sec">
-            <button
-              className="useMyLocation"
-              title="Search using your current location!"
-              id="useLocation"
-              onClick={onClick}
-            >
-              <span
-                className="icon"
-                dangerouslySetInnerHTML={{ __html: UseMylocationsvg }}
-              />
+            {/* <button className="useMyLocation" title="Search using your current location!" id="useLocation" onClick={onClick}>
+              <span className="icon" dangerouslySetInnerHTML={{ __html: UseMylocationsvg }} />
 
-              <span className="underline hover:no-underline">
-                {" "}
-                {StaticData.Usemylocation}
-              </span>
-            </button>
+             <span className="underline hover:no-underline"> {StaticData.Usemylocation}</span>
+            </button> */}
 
             <ResultsCount
               customCssClasses={{ container: "mx-2 my-0 text-dark-gray" }}
@@ -370,43 +374,24 @@ const SearchLayout = (props: any): JSX.Element => {
         </div>
 
         <div className="left-listing">
-          <PerfectScrollbar>
-            <div>
-              <VerticalResults
-                displayAllOnNoResults={false}
-                CardComponent={LocationCard}
-                locationResults={locationinbuit}
-                customCssClasses={{
-                  container:
-                    "result-list flex flex-col scroll-smooth  overflow-auto",
-                }}
-                // CardComponent={LocationCard}
-              />
-
-              {locationinbuit && locationinbuit.length <= 0 ? (
-                <div className="browse-dir">
-                  <a className="underline " href="/gb.html">
-                    Use the search above or{" "}
-                    <span className="font-second-main-font">
-                      {" "}
-                      browse our directory
-                    </span>
-                  </a>
-                </div>
-              ) : (
-                ""
-              )}
-              <div className="button-bx">
-                <ViewMore
-                  className={
-                    " btn notHighlight lg:!w-[132%] !mb-2 button view-more"
-                  }
-                  idName={"view-more-button"}
-                  buttonLabel={"View More"}
+          <PerfectScrollbar className="result-list">
+            {locationResults && locationResults.length > 0 && (
+              <div className="scrollbar-custom">
+                <VerticalResults
+                  displayAllOnNoResults={false}
+                  CardComponent={LocationCard}
+                  locationResults={locationResults}
                 />
               </div>
-            </div>
+            )}
           </PerfectScrollbar>
+          {locationResults && locationResults.length > 0 && (
+            <ViewMore
+              className={"button view-more before-icon"}
+              idName={"listing-view-more-button"}
+              buttonLabel={"View More Location"}
+            />
+          )}
         </div>
       </div>
     </>

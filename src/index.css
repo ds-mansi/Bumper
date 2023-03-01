@@ -303,6 +303,10 @@ body.mapView .mobile-btns .btn.mapBtn {
 }
 .search-bx .search-btn {
   @apply absolute top-0 rounded-none right-0  text-white p-2 w-12 h-12 text-center bg-red hover:bg-hover-btn;
+  background-color: #eb0000;
+}
+.search-bx .search-btn:hover{
+  background-color: #e9a7a5;
 }
 .search-bx .search-btn svg {
   @apply mx-auto;
@@ -1032,6 +1036,16 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .view-more {
   @apply text-center mt-5;
+  background-color: #eb0000;
+  color: #fff;
+  font-weight: bold;
+  padding: 20px;
+  margin-left: 30px;
+}
+
+.view-more:hover{
+  background-color: black;
+  color: red;
 }
 
 /* near by */
