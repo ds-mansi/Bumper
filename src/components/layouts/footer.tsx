@@ -53,6 +53,7 @@ const Footer = (props: any) => {
 
   return (
     <>
+    <div style={{display:"block"}}>
       <div style={{ display: "flex", height: "100%" }}>
         <div style={{ width: "50%" }}>
           <div style={{ display: "flex" }}>
@@ -122,6 +123,7 @@ const Footer = (props: any) => {
             </button>
           </div>
         </div>
+      </div>
       </div>
       <footer className="upperfooter">
         <div style={{ display: "flex" ,width:"50%" }}>{ufooter}</div>
