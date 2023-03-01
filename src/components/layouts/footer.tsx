@@ -53,7 +53,7 @@ const Footer = (props: any) => {
 
   return (
     <>
-    <div style={{display:"block"}}>
+    <div style={{display:"inline-block"}}>
       <div style={{ display: "flex", height: "100%" }}>
         <div style={{ width: "50%" }}>
           <div style={{ display: "flex" }}>
