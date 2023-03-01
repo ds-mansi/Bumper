@@ -74,7 +74,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
   //   "/" +
   //   result.rawData.slug?.toString() +
   //   ".html";
-  var link=result.rawData.id.toString()+".html"
+  var link=result.rawData.id.toString()
   // console.log(link, "link");
   if (!result.rawData.slug) {
     url = `/${link}.html`;
