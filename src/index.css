@@ -1124,7 +1124,8 @@ nav[aria-label="Pagination"] button:disabled {
 .newsletter-logo img {
   @apply mx-auto;
 }
-
+.OpenCloseStatus .daylist{@apply hidden}
+.active.daylist{ @apply  !block pl-[50px]}
 /* footer sec */
 /* footer sec */
 .site-footer {
@@ -1199,6 +1200,7 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .upperfooter {
   display: flex;
+
 }
 .site-footer
   .MuiPaper-elevation

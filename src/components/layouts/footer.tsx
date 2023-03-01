@@ -53,84 +53,81 @@ const Footer = (props: any) => {
 
   return (
     <>
-    <div style={{display:"inline-block"}}>
-      <div style={{ display: "flex", height: "100%" }}>
-        <div style={{ width: "50%" }}>
-          <div style={{ display: "flex" }}>
-            {props?.aboutimg?.map((img: any) => {
-              // console.log(props.aboutimg, "adefsgedg");
-              return (
-                <>
-                  <img src={img.url} style={{ height: "80%" }} />
-                </>
-              );
-            })}
-            <div style={{ padding: "30px" }}>
-              <h1 style={{ fontWeight: "bold", paddingBottom: "10px" }}>
-                {props?.abouthead?.aboutHeading}
-              </h1>
-              <br />
-              <p style={{ paddingBottom: "10px" }}>
-                {props?.abouthead?.aboutDescription}
-              </p>
-              <br />
-              <button
+      <div style={{ display: "inline-block" }}>
+        <div style={{ display: "flex", height: "100%" }}>
+          <div style={{ width: "50%" }}>
+            <div style={{ display: "flex" }}>
+              {props?.aboutimg?.map((img: any) => {
+                // console.log(props.aboutimg, "adefsgedg");
+                return (
+                  <>
+                    <img src={img.url} style={{ height: "80%" }} />
+                  </>
+                );
+              })}
+              <div style={{ padding: "30px" }}>
+                <h1 style={{ fontWeight: "bold", paddingBottom: "10px" }}>
+                  {props?.abouthead?.aboutHeading}
+                </h1>
+                <br />
+                <p style={{ paddingBottom: "10px" }}>
+                  {props?.abouthead?.aboutDescription}
+                </p>
+                <br />
+                <button
+                  style={{
+                    border: "1px solid black",
+                    backgroundColor: "black",
+                    color: "white",
+                    padding: "15px",
+                  }}
+                >
+                  <a href={props?.aboutcta?.link}>{props?.aboutcta?.label}</a>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              backgroundColor: "black",
+              width: "50%",
+            }}
+          >
+            <div style={{ width: "90%" }}>
+              <img src={props?.about2img?.url} style={{ height: "100%" }} />
+            </div>
+            <div
+              style={{
+                color: "white",
+                fontWeight: "bold",
+                padding: "50px",
+              }}
+            >
+              <h1
                 style={{
-                  border: "1px solid black",
-                  backgroundColor: "black",
-                  color: "white",
-                  padding: "15px",
+                  paddingBottom: "55px",
+                  fontWeight: "bold",
                 }}
               >
-                <a href={props?.aboutcta?.link}>{props?.aboutcta?.label}</a>
+                {props?.abouthead2?.aboutHeading2}
+              </h1>
+              <p style={{ color: "white", paddingBottom: "70px" }}>
+                {props?.abouthead2?.about2Description}
+              </p>
+              <button style={{ border: "1px solid white", padding: "10px" }}>
+                <a href={props?.about2cta?.link}>{props?.about2cta?.label}</a>
               </button>
             </div>
           </div>
         </div>
-        <div
-          style={{
-            display: "flex",
-            backgroundColor: "black",
-            width: "50%",
-          }}
-        >
-          <div style={{width:"90%"}}>
-            <img
-              src={props?.about2img?.url}
-              style={{ height:"100%"}}
-            />
-          </div>
-          <div
-            style={{
-              color: "white",
-              fontWeight: "bold",
-              padding: "50px",
-            }}
-          >
-            <h1
-              style={{
-                paddingBottom: "55px",
-                fontWeight: "bold",
-              }}
-            >
-              {props?.abouthead2?.aboutHeading2}
-            </h1>
-            <p style={{ color: "white", paddingBottom: "70px"}}>
-              {props?.abouthead2?.about2Description}
-            </p>
-            <button style={{ border: "1px solid white", padding: "10px" }}>
-              <a href={props?.about2cta?.link}>{props?.about2cta?.label}</a>
-            </button>
-          </div>
-        </div>
-      </div>
       </div>
       <footer className="upperfooter">
-        <div style={{ display: "flex" ,width:"50%" }}>{ufooter}</div>
+        <div style={{ display: "flex", width: "50%" }}>{ufooter}</div>
         <div style={{ paddingLeft: "10%", display: "flex", paddingTop: "4%" }}>
           <div style={{ paddingRight: "90px" }}>{upfooter}</div>
           <div>
-            <button
+            <button 
               style={{
                 border: "1px solid black",
                 padding: "5px 50px 5px 20px",
