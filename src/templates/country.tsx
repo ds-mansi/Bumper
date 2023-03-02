@@ -45,19 +45,6 @@ export const config: TemplateConfig = {
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
       "dm_directoryParents.meta.entityType",
-      // "c_globalData.c_headerLinks1",
-      // "c_globalData.c_footerLinks",
-      // "c_globalData.facebookPageUrl",
-      // "c_globalData.twitterHandle",
-      // "c_globalData.instagramHandle",
-      // "c_globalData.address",
-      // "c_globalData.c_phoneNumber",
-      // "c_globalData.c_companyrn",
-      // "c_globalData.c_tikTok",
-      //seo section
-      // "c_canonical",
-      // "c_metaDescription",
-      // "c_metaTitle",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -233,6 +220,7 @@ const country: Template<TemplateRenderProps> = ({
   } = document;
   const childrenDivs = dm_directoryChildren
     ? dm_directoryChildren.map((entity: any) => {
+        console.log(entity.slug, "entity");
         let detlslug;
 
         if (typeof entity.dm_directoryChildren != "undefined") {
@@ -276,7 +264,7 @@ const country: Template<TemplateRenderProps> = ({
 
         return (
           <li className=" storelocation-category">
-            <a key={entity.slug} href={detlslug}>
+            <a key={entity.slug} href={slug + "/" + entity.slug + ".html"}>
               {entity.name} ({entity.dm_directoryChildrenCount})
             </a>
           </li>
