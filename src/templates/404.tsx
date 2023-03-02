@@ -64,7 +64,7 @@ const FourOhFour: Template<TemplateRenderProps> = ({
   } = document;
   return (
     <>
-      <Header
+       <Header
             _site={_site}
             labels={_site.c_upperHeader.upperHeaderNav}
             store={_site?.c_upperHeader}

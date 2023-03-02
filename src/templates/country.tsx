@@ -15,11 +15,13 @@ import constant from "../constant";
 import Banner from "../components/locationDetail/banner";
 import { StaticData } from "../../sites-global/staticData";
 import PageLayout from "../components/layouts/PageLayout";
-import { favicon, regionNames, stagingBaseurl } from "../../sites-global/global";
+import {
+  favicon,
+  regionNames,
+  stagingBaseurl,
+} from "../../sites-global/global";
 import Header from "../components/layouts/header";
 import Footer from "../components/layouts/footer";
-
-
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -27,7 +29,7 @@ import Footer from "../components/layouts/footer";
 var currentUrl = "";
 export const config: TemplateConfig = {
   stream: {
-    $id: "matlan-country",
+    $id: "ce_country",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
     fields: [
@@ -69,7 +71,6 @@ export const config: TemplateConfig = {
   },
 };
 
-
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
   currentUrl = "/" + document.slug.toString() + ".html";
   return "/" + document.slug.toString() + ".html";
@@ -79,15 +80,17 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
 //   return [`index-old/${document.id.toString()}`];
 // };
 
-
 export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
 }): HeadConfig => {
-  
   return {
-    title: `${document.c_meta_title?document.c_meta_title:`MGM Stores in ${document.name} | Find a Local Store`}`,
+    title: `${
+      document.c_meta_title
+        ? document.c_meta_title
+        : `Bumper to Bumper in ${document.name} | Find a Local Store`
+    }`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
     tags: [
@@ -98,77 +101,87 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           href: favicon,
         },
       },
-        {
-          type: "meta",
-          attributes: {
-            name: "description",
-            content:`${document.c_meta_description?document.c_meta_description:`Use this page to find your nearest MGM store in ${document.name} and discover the location details you need to visit us today.`}`,
-          },
+      {
+        type: "meta",
+        attributes: {
+          name: "description",
+          content: `${
+            document.c_meta_description
+              ? document.c_meta_description
+              : `Use this page to find your nearest Bumper store in ${document.name} and discover the location details you need to visit us today.`
+          }`,
         },
+      },
 
-        {
-          type: "meta",
-          attributes: {
-            name: "author",
-            content: StaticData.Brandname,
-          },
+      {
+        type: "meta",
+        attributes: {
+          name: "author",
+          content: StaticData.Brandname,
         },
-        {
-          type: "meta",
-          attributes: {
-            name: "keywords",
-            content: document.name,
-          },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "keywords",
+          content: document.name,
         },
-        {
-          type: "meta",
-          attributes: {
-            name: "robots",
-            content: "noindex, nofollow",
-          },
+      },
+      {
+        type: "meta",
+        attributes: {
+          name: "robots",
+          content: "noindex, nofollow",
         },
+      },
 
-        {
-          type: "link",
-          attributes: {
-            rel: "canonical",
-            href: `${
-              stagingBaseurl 
-                 ? stagingBaseurl + document.slug + ".html"
-                 : "/" + document.slug + ".html"
-            }`,
-          },
+      {
+        type: "link",
+        attributes: {
+          rel: "canonical",
+          href: `${
+            stagingBaseurl
+              ? stagingBaseurl + document.slug + ".html"
+              : "/" + document.slug + ".html"
+          }`,
         },
+      },
       //   // /og tags
 
-        {
-          type: "meta",
-          attributes: {
-            property: "og:url",
-            content: `/${document.slug?document.slug:`${document.name.toLowerCase()}`}.html`,
-          },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:url",
+          content: `/${
+            document.slug ? document.slug : `${document.name.toLowerCase()}`
+          }.html`,
         },
-        {
-          type: "meta",
-          attributes: {
-            property: "og:description",
-            content: `${document.c_meta_description?document.c_meta_description:`Find MGM Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`}`,
-          },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:description",
+          content: `${
+            document.c_meta_description
+              ? document.c_meta_description
+              : `Find Bumper Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
+          }`,
         },
-        {
-          type: "meta",
-          attributes: {
-            property: "og:title",
-            content: `${document.name}`,
-          },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:title",
+          content: `${document.name}`,
         },
-        {
-          type: "meta",
-          attributes: {
-            property: "og:image",
-            content: favicon,
-          },
+      },
+      {
+        type: "meta",
+        attributes: {
+          property: "og:image",
+          content: favicon,
         },
+      },
 
       {
         type: "meta",
@@ -181,7 +194,9 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "twitter:url",
-          content: `/${document.slug?document.slug:`${document.name.toLowerCase()}`}.html`,
+          content: `/${
+            document.slug ? document.slug : `${document.name.toLowerCase()}`
+          }.html`,
         },
       },
 
@@ -189,14 +204,16 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "twitter:description",
-          content: `${document.c_meta_description?document.c_meta_description:`Find MGM Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`}`
+          content: `${
+            document.c_meta_description
+              ? document.c_meta_description
+              : `Find Bumper Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
+          }`,
         },
       },
     ],
   };
 };
-
-
 
 const country: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
@@ -204,7 +221,7 @@ const country: Template<TemplateRenderProps> = ({
   document,
 }) => {
   const { description, dm_directoryChildren, dm_directoryParents, c_tagline } =
-  document;
+    document;
   const {
     name,
     slug,
@@ -214,65 +231,58 @@ const country: Template<TemplateRenderProps> = ({
     c_metaTitle,
     __meta,
   } = document;
-  const childrenDivs = dm_directoryChildren ? dm_directoryChildren.map((entity: any) => {
-    let detlslug;
+  const childrenDivs = dm_directoryChildren
+    ? dm_directoryChildren.map((entity: any) => {
+        let detlslug;
 
+        if (typeof entity.dm_directoryChildren != "undefined") {
+          if (entity.dm_directoryChildrenCount == 1) {
+            entity.dm_directoryChildren.map((res: any) => {
+              let detlslug1 = "";
 
-    if (typeof entity.dm_directoryChildren != "undefined") {
-      if (entity.dm_directoryChildrenCount == 1) {
-        entity.dm_directoryChildren.map((res: any) => {
+              if (!res.slug) {
+                let slugString = res.id + " " + res.name;
+                let slug = slugString;
+                detlslug1 = `${slug}.html`;
+              } else {
+                detlslug1 = `${res.slug.toString()}.html`;
+              }
+              if (res.meta.entityType.id == "ce_city") {
+                detlslug1 = "gb/" + detlslug1;
+              } else {
+                detlslug1 = detlslug1;
+              }
 
-          let detlslug1 = "";
+              // console.log(entity.name, res);
 
-          if (!res.slug) {
-            let slugString = res.id + " " + res.name;
-            let slug = slugString;
-            detlslug1 = `${slug}.html`;
+              res.dm_directoryChildren
+                ? res.dm_directoryChildren.map((detl: any) => {
+                    if (!detl.slug) {
+                      let slugString = detl.id + " " + detl.name;
+                      let slug = slugString;
+                      detlslug1 = `${slug}.html`;
+                    } else {
+                      detlslug1 = `${detl.slug.toString()}.html`;
+                    }
+
+                    detlslug = detlslug1;
+                  })
+                : (detlslug = detlslug1);
+            });
           } else {
-            detlslug1 = `${res.slug.toString()}.html`;
+            detlslug = slug + "/" + entity.slug + ".html";
           }
-          if (res.meta.entityType.id == 'ce_city') {
-            detlslug1 = "gb/" + detlslug1;
-          } else {
-            detlslug1 = detlslug1;
-          }
+        }
 
-          // console.log(entity.name, res);
-
-          res.dm_directoryChildren ? res.dm_directoryChildren.map((detl: any) => {
-
-            if (!detl.slug) {
-              let slugString = detl.id + " " + detl.name;
-              let slug =slugString;
-              detlslug1 = `${slug}.html`;
-            } else {
-              detlslug1 = `${detl.slug.toString()}.html`;
-            }
-
-            detlslug = detlslug1;
-
-          }) : detlslug = detlslug1;
-
-
-        })
-      }
-      else {
-        detlslug = slug + "/" + entity.slug + ".html";
-      }
-    }
-
-    return (
-      <li className=" storelocation-category">
-        <a
-          key={entity.slug}
-          href={stagingBaseurl + detlslug}
-        >
-          {entity.name} ({entity.dm_directoryChildrenCount})
-        </a>
-      </li>
-    )
-  }) : null;
-
+        return (
+          <li className=" storelocation-category">
+            <a key={entity.slug} href={detlslug}>
+              {entity.name} ({entity.dm_directoryChildrenCount})
+            </a>
+          </li>
+        );
+      })
+    : null;
 
   // let bannerimage = c_locatorBannerImage ? c_locatorBannerImage.map((element: any) => {
   //   return element.url
@@ -280,56 +290,49 @@ const country: Template<TemplateRenderProps> = ({
 
   return (
     <>
-    <Header
-            _site={_site}
-            labels={_site.c_upperHeader.upperHeaderNav}
-            store={_site?.c_upperHeader}
-            lhead={_site?.c_lowerHeader?.lowerHeaderNav}
-            licon={_site?.c_lowerHeader}
-            limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
-            
-          />
-        <BreadCrumbs
-          name={regionNames.of(name)}
-          address={undefined}
-          parents={dm_directoryParents}
-          baseUrl={relativePrefixToRoot}
-        ></BreadCrumbs>
-        {/* <div className="location-dtl">
+      <Header
+        _site={_site}
+        labels={_site.c_upperHeader.upperHeaderNav}
+        store={_site?.c_upperHeader}
+        lhead={_site?.c_lowerHeader?.lowerHeaderNav}
+        licon={_site?.c_lowerHeader}
+        limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
+      />
+      <BreadCrumbs
+        name={regionNames.of(name)}
+        address={undefined}
+        parents={dm_directoryParents}
+        baseUrl={relativePrefixToRoot}
+      ></BreadCrumbs>
+      {/* <div className="location-dtl">
           <Banner name={regionNames.of(name)} c_bannerImage={bannerimage} />
         </div> */}
 
-
-
-        <div className="content-list">
-          <div className="container">
-            <div className="sec-title">
-              <h2 style={{ textAlign: "center" }}>
-                {StaticData.AllRegion} {regionNames.of(name)}{" "}
-              </h2>
-            </div>
-
-            <ul className="region-list">
-
-              {childrenDivs}
-            </ul>
-
+      <div className="content-list">
+        <div className="container">
+          <div className="sec-title">
+            <h2 style={{ textAlign: "center" }}>
+              {StaticData.AllRegion} {regionNames.of(name)}{" "}
+            </h2>
           </div>
+
+          <ul className="region-list">{childrenDivs}</ul>
         </div>
-        <Footer
-          _site={_site?.c_lowerFooter}
-          ufooter={_site?.c_upperFooter?.upperFooterLabel}
-          upfooter={_site?.c_upperFooter}
-          subscribe={_site?.c_upperFooter?.subscribeCta}
-          copy={_site?.c_lowerFooter}
-          tandc={_site?.c_lowerFooter?.tAndC}
-          aboutimg={_site?.c_about?.aboutImage}
-          abouthead={_site?.c_about}
-          aboutcta={_site?.c_about?.aboutCTA}
-          about2img={_site?.c_about2?.about2Image}
-          abouthead2={_site?.c_about2}
-          about2cta={_site?.c_about2?.about2CTA}
-          />
+      </div>
+      <Footer
+        _site={_site?.c_lowerFooter}
+        ufooter={_site?.c_upperFooter?.upperFooterLabel}
+        upfooter={_site?.c_upperFooter}
+        subscribe={_site?.c_upperFooter?.subscribeCta}
+        copy={_site?.c_lowerFooter}
+        tandc={_site?.c_lowerFooter?.tAndC}
+        aboutimg={_site?.c_about?.aboutImage}
+        abouthead={_site?.c_about}
+        aboutcta={_site?.c_about?.aboutCTA}
+        about2img={_site?.c_about2?.about2Image}
+        abouthead2={_site?.c_about2}
+        about2cta={_site?.c_about2?.about2CTA}
+      />
     </>
   );
 };

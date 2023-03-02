@@ -65,16 +65,16 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
   var finalcity: any = initialrcity.replaceAll(" ", "-");
   var string: any = name.toString();
   let result1: any = string.replaceAll(" ", "-");
-  // var link =
-  //   country +
-  //   "/" +
-  //   region +
-  //   "/" +
-  //   city +
-  //   "/" +
-  //   result.rawData.slug?.toString() +
-  //   ".html";
-  var link=result.rawData.id.toString()
+  var link =
+    country +
+    "/" +
+    region +
+    "/" +
+    city +
+    "/" +
+    result.rawData.slug?.toString() +
+    ".html";
+  // var link=result.rawData.id.toString()
   // console.log(link, "link");
   if (!result.rawData.slug) {
     url = `/${link}.html`;

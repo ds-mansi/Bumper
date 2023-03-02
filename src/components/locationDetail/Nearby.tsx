@@ -70,7 +70,14 @@ export default function Nearby(props: any) {
         var string: any = name.toString();
         let result1: any = string.replaceAll(" ", "-");
         var link =
-          location.slug?.replaceAll(" ", "-")?.toLowerCase()?.toString() ;
+        country +
+        "/" +
+        region +
+        "/" +
+        city +
+        "/" +
+        location.slug?.toString() +
+        ".html";
           console.log(link,"link")
         // var link=location.id?.toString()
         if (!location.slug) {

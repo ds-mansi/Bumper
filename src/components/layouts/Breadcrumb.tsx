@@ -16,7 +16,7 @@ const BreadCrumbs = (props: data) => {
   var data: any = [];
   React.useEffect(() => {
     setURL(props.parents, props.baseUrl);
-  console.log(props.parents)
+  // console.log(props.parents)
   }, [setList]);
 
   const setURL = (parents: any, baseUrl: any) => {
@@ -30,7 +30,6 @@ const BreadCrumbs = (props: data) => {
           // parents[i].name = regionNames.of(parents[i].name);
  
           parents[i].slug = parents[i].slug;
-          
           data.push({
             name: regionNames.of(parents[i].name),
             slug: parents[i].slug,

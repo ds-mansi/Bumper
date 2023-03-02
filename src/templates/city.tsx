@@ -38,7 +38,7 @@ import Footer from "../components/layouts/footer";
 var currentUrl = "";
 export const config: TemplateConfig = {
   stream: {
-    $id: "matlan-city",
+    $id: "ce_city",
     filter: {
       entityTypes: ["ce_city"],
     },
@@ -112,7 +112,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
     title: `${
       document.c_meta_title
         ? document.c_meta_title
-        : `MGM Stores in ${document.name} | Find a Local Store`
+        : `Bumper Stores in ${document.name} | Find a Local Store`
     }`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
@@ -131,7 +131,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Use this page to find your nearest MGM store in ${document.name} and discover the location details you need to visit us today.`
+              : `Use this page to find your nearest Bumper store in ${document.name} and discover the location details you need to visit us today.`
           }`,
         },
       },
@@ -196,7 +196,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find MGM Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
+              : `Find Bumper Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -239,7 +239,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find MGM Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
+              : `Find Bumper Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -298,6 +298,7 @@ const City: Template<TemplateRenderProps> = ({
     var url = "";
     var name: any = entity.name.toLowerCase();
     var region: any = entity.address.region.toLowerCase();
+    var country: any = entity.address.countryCode.toLowerCase();
     var initialregion: any = region.toString();
     var finalregion: any = initialregion.replaceAll(" ", "-");
     var city: any = entity.address.city.toLowerCase();
@@ -305,10 +306,21 @@ const City: Template<TemplateRenderProps> = ({
     var finalcity: any = initialrcity.replaceAll(" ", "-");
     var string: any = name.toString();
     let result: any = string.replaceAll(" ", "-");
+    // console.log(entity.slug,"object")
+    var link =
+    country +
+    "/" +
+    region +
+    "/" +
+    city +
+    "/" +
+    entity.slug+
+    ".html";
     if (!entity.slug) {
-      url = `/${entity.id}-${result}.html`;
+      url = `/${link}.html`;
     } else {
-      url = `/${entity.slug.toString()}.html`;
+      url = `/${link}`;
+      console.log(url,"urlvasdvg")
     }
 
     return (
@@ -508,46 +520,46 @@ const City: Template<TemplateRenderProps> = ({
           itemListElement: breadcrumbScheme,
         }}
       />
-       <Header
-            _site={_site}
-            labels={_site.c_upperHeader.upperHeaderNav}
-            store={_site?.c_upperHeader}
-            lhead={_site?.c_lowerHeader?.lowerHeaderNav}
-            licon={_site?.c_lowerHeader}
-            limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
-            
-          />
-        <BreadCrumbs
-          name={name}
-          address={address}
-          parents={dm_directoryParents}
-          baseUrl={relativePrefixToRoot}
-        ></BreadCrumbs>
+      <Header
+        _site={_site}
+        labels={_site.c_upperHeader.upperHeaderNav}
+        store={_site?.c_upperHeader}
+        lhead={_site?.c_lowerHeader?.lowerHeaderNav}
+        licon={_site?.c_lowerHeader}
+        limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
+      />
+      <BreadCrumbs
+        name={name}
+        address={address}
+        parents={dm_directoryParents}
+        baseUrl={relativePrefixToRoot}
+      ></BreadCrumbs>
 
-        <div className="content-list city-page">
-          <div className="container mx-auto">
-            <div className="sec-title">
-              <h2>MGM stores in {name}</h2>
-            </div>
-            <div className="flex flex-wrap justify-center items-start -mx-2.5 lg:-mx-[.9375rem]">
-              {childrenDivs}
-            </div>
+      <div className="content-list city-page">
+        <div className="container mx-auto">
+          <div className="sec-title">
+            <h2>Bumper stores in {name}</h2>
+          </div>
+          <div className="flex flex-wrap justify-center items-start -mx-2.5 lg:-mx-[.9375rem]">
+            
+            {childrenDivs}
           </div>
         </div>
-        <Footer
-          _site={_site?.c_lowerFooter}
-          ufooter={_site?.c_upperFooter?.upperFooterLabel}
-          upfooter={_site?.c_upperFooter}
-          subscribe={_site?.c_upperFooter?.subscribeCta}
-          copy={_site?.c_lowerFooter}
-          tandc={_site?.c_lowerFooter?.tAndC}
-          aboutimg={_site?.c_about?.aboutImage}
-          abouthead={_site?.c_about}
-          aboutcta={_site?.c_about?.aboutCTA}
-          about2img={_site?.c_about2?.about2Image}
-          abouthead2={_site?.c_about2}
-          about2cta={_site?.c_about2?.about2CTA}
-          />
+      </div>
+      <Footer
+        _site={_site?.c_lowerFooter}
+        ufooter={_site?.c_upperFooter?.upperFooterLabel}
+        upfooter={_site?.c_upperFooter}
+        subscribe={_site?.c_upperFooter?.subscribeCta}
+        copy={_site?.c_lowerFooter}
+        tandc={_site?.c_lowerFooter?.tAndC}
+        aboutimg={_site?.c_about?.aboutImage}
+        abouthead={_site?.c_about}
+        aboutcta={_site?.c_about?.aboutCTA}
+        about2img={_site?.c_about2?.about2Image}
+        abouthead2={_site?.c_about2}
+        about2cta={_site?.c_about2?.about2CTA}
+      />
     </>
   );
 };

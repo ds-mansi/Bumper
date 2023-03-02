@@ -151,10 +151,17 @@ const Header = (props: any) => {
               </button>
               <button>
                 <div style={{ display: "flex" }}>
-                  <div style={{padding:"19px"}}>
-                    <label>{props.licon.lowerHeaderShop.label}</label>
+                  <div style={{ padding: "19px" }}>
+                    <label><a href={props.licon.lowerHeaderShop.link}>{props.licon.lowerHeaderShop.label}</a></label>
                   </div>
-                  <div style={{ display: "flex", float: "right" , paddingTop:"20px",paddingLeft:"25px"}}>
+                  <div
+                    style={{
+                      display: "flex",
+                      float: "right",
+                      paddingTop: "20px",
+                      paddingLeft: "25px",
+                    }}
+                  >
                     {lowericon}
                   </div>
                 </div>

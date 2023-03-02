@@ -688,7 +688,8 @@ nav[aria-label="Pagination"] button:disabled {
 /* breadcrumb */
 .breadcrumb {
   @apply mt-2 text-nav-link py-2;
-  background-color: #eb0000;
+  background-color: #e41f1f;
+  border: 1px solid black;
   padding: 20px;
   margin-top: 0px;
   color: white;

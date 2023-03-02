@@ -28,7 +28,7 @@ export const config: TemplateConfig = {
   stream: {
     $id: "ce_region",
     filter: {
-      savedFilterIds: ["dm_stores-directory_address_region"],
+      entityTypes: ["ce_region"],
     },
     fields: [
       "id",
@@ -75,7 +75,7 @@ export const getPath: GetPath<TemplateProps> = ({ document }) => {
   document.dm_directoryParents.map((i: any) => {
     if (i.meta.entityType.id == 'ce_country') {
       url += i.slug + "/";
-    }
+         }
   });
   url += document.slug.toString();
 
@@ -101,7 +101,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
    
    
   return {
-    title: `${document.c_meta_title?document.c_meta_title:`MGM Stores in ${document.name} | Find a Local Store`}`,
+    title: `${document.c_meta_title?document.c_meta_title:`Bumper Stores in ${document.name} | Find a Local Store`}`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
     tags: [
@@ -116,7 +116,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           type: "meta",
           attributes: {
             name: "description",
-            content:`${document.c_meta_description?document.c_meta_description:`Use this page to find your nearest MGM store in ${document.name} and discover the location details you need to visit us today.`}`,
+            content:`${document.c_meta_description?document.c_meta_description:`Use this page to find your nearest Bumper store in ${document.name} and discover the location details you need to visit us today.`}`,
           },
         },
 
@@ -177,7 +177,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           type: "meta",
           attributes: {
             property: "og:description",
-            content: `${document.c_meta_description?document.c_meta_description:`Find MGM Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`}`,
+            content: `${document.c_meta_description?document.c_meta_description:`Find Bumper Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`}`,
           },
         },
         {
@@ -214,7 +214,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
         type: "meta",
         attributes: {
           name: "twitter:description",
-          content: `${document.c_meta_description?document.c_meta_description:`Find MGM Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`}`
+          content: `${document.c_meta_description?document.c_meta_description:`Find Bumper Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`}`
         },
       },
     ],
@@ -253,18 +253,22 @@ const region: Template<TemplateRenderProps> = ({
           let detlslug1 = "";
 
           if (!res.slug) {
-            let slugString = res.id + "-" + res.name.toLowerCase();
+            let slugString = res.id + "-" + res.name;
             let slug = slugString;
             detlslug1 = `${slug}.html`;
           } else {
-            detlslug1 = `${res.slug.toString()}.html`;
+            detlslug1 = slug+"/"+entity.slug+"/"+res.id+".html";
+            // detlslug1 = `/${res.slug.toString()}.html`;
+            console.log(detlslug1,"d1state")
           }
+          
 
           detlslug = detlslug1;
 
         })
       } else {
-        detlslug = "gb/" + slug + "/" + entity.slug + ".html";
+        detlslug =slug + "/" + entity.slug + ".html";
+        // console.log(detlslug,"state")
       }
 
     }
@@ -273,7 +277,7 @@ const region: Template<TemplateRenderProps> = ({
       <li className=" storelocation-category">
         <a
           key={entity.slug}
-          href={stagingBaseurl  + detlslug}
+          href={ detlslug}
         >
           {entity.name} ({entity.dm_directoryChildrenCount})
         </a>

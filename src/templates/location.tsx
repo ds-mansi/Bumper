@@ -84,6 +84,10 @@ export const config: TemplateConfig = {
       "c_service",
       "c_banner",
       "c_message",
+      "dm_directoryParents.name",
+      "dm_directoryParents.slug",
+      "dm_directoryParents.meta.entityType",
+      "dm_directoryParents.c_addressRegionDisplayName",
       
     ],
     // Defines the scope of entities that qualify for this stream.
@@ -105,23 +109,23 @@ export const config: TemplateConfig = {
  * take on the form: featureName/entityId
  */
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  // var url = "";
-  // var name: any = document.name.toLowerCase();
-  // var string: any = name.toString();;
-  // let result: any = string.replaceAll(" ", "-");
-  // document?.dm_directoryParents?.map((result: any, i: Number) => {
-  //   if (i > 0) {
-  //     url += result.slug + "/"
-  //   }
-  // })
-  // if (!document.slug) {
-  //   url += `${result}.html`;
-  // } else {
-  //   url += `${document.slug.toString()}.html`;
-  // }
-  // console.log(url,"url")
+  var url = "";
+  var name: any = document.name.toLowerCase();
+  var string: any = name.toString();;
+  let result: any = string.replaceAll(" ", "-");
+  document?.dm_directoryParents?.map((result: any, i: Number) => {
+    if (i > 0) {
+      url += result.slug + "/"
+    }
+  })
+  if (!document.slug) {
+    url += `${result}.html`;
+  } else {
+    url += `${document.slug.toString()}.html`;
+  }
+  
 
-  return document.id;
+  return url;
 };
 /**
  * Defines a list of paths which will redirect to the path created by getPath.
@@ -303,6 +307,7 @@ const Location: Template<ExternalApiRenderData> = ({
     timezone,
     yextDisplayCoordinate,
     displayCoordinate,
+    dm_directoryParents,
     cityCoordinate,
     c_service,
     emails,
@@ -331,70 +336,7 @@ const Location: Template<ExternalApiRenderData> = ({
     );
   });
 
-  // const aboutimg = c_abouts?.map((des: any) => {
-  //   let Image = des.aboutImage;
-  //   // Getting Image URL code - starts
-  //   let Photo = Image.map((ImageUrl: any) => {
-  //     let PhotoURl = ImageUrl.url;
-  //     return PhotoURl;
-  //   });
 
-  //   // Getting Image URL code - starts
-  //   return (
-  //     <>
-  //       <img src={Photo} />
-  //     </>
-  //   );
-  // });
-
-  // const aboutCta = c_abouts?.map((cta: any) => {
-  //   console.log(cta.aboutCTA, "aboutCTA");
-  //   return (
-  //     <>
-  //       <button
-  //         style={{
-  //           border: "1px solid black",
-  //           backgroundColor: "black",
-  //           color: "white",
-  //           padding: "15px",
-  //         }}
-  //       >
-  //         <a href={cta.aboutCTA.link}>{cta.aboutCTA.label}</a>
-  //       </button>
-  //     </>
-  //   );
-  // });
-
-  // const abouthead = c_abouts?.map((desc: any) => {
-  //   // console.log(desc.aboutHeading,"aboutHeading")
-  //   return (
-  //     <>
-  //       <h1 style={{ fontWeight: "bold", paddingBottom: "20px" }}>
-  //         {desc.aboutHeading}
-  //       </h1>
-  //     </>
-  //   );
-  // });
-  // console.log(c_abouts.abouthead,"c_abouts")
-
-  // const aboutdesc = c_abouts?.map((head: any) => {
-  //   // console.log(head.aboutDescription,"aboutDescription")
-  //   return (
-  //     <>
-  //       <p style={{ paddingBottom: "20px" }}>{head.aboutDescription}</p>
-  //     </>
-  //   );
-  // });
-
-  // c_about2
-
-  // const about2 = c_about2.about2Image;
-  // console.log(about2,"c_about2")
-
-  // const cta2=c_about2?.about2CTA?.map((onclick:any)=>{
-  //   console.log(onclick,"about2CTA")
-  // })
-  // console.log(c_about2.about2CTA,"c_about2?.about2CTA?")
 
   let templateData = { document: document, __meta: __meta };
   let hoursSchema = [];
@@ -569,6 +511,7 @@ const Location: Template<ExternalApiRenderData> = ({
             limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
             
           />
+           
           <div style={{ display: "flex" }}>
             <div style={{ width: "60%" }}>
               <h1
@@ -599,13 +542,18 @@ const Location: Template<ExternalApiRenderData> = ({
                 </button>
               </div>
             </div>
-            <div style={{ height: "440px", width: "560px" }}>
+            <div style={{ height: "383px", width: "560px" }}>
               <a>
                 <img src={c_banner.bannerImage.url} />
               </a>
             </div>
           </div>
-
+          <BreadCrumbs
+            name={name}
+            parents={dm_directoryParents}
+            baseUrl={relativePrefixToRoot}
+            address={address}
+          ></BreadCrumbs>
           <div className="location-information">
             {hours ? (
               <div className="map-sec" id="map_canvas">
