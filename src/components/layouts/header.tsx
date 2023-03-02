@@ -38,7 +38,15 @@ const Header = (props: any) => {
     // console.log("objectssssssssssssss",ico)
     return (
       <>
-        <a style={{ height: "18px", width: "18px" }}>
+        <a
+          style={{
+            height: "18px",
+            width: "18px",
+            display: "flex",
+            backgroundColor: "red",
+            margin:"5px"
+          }}
+        >
           <img src={ico.url} />
         </a>
       </>
@@ -60,7 +68,7 @@ const Header = (props: any) => {
     return (
       <>
         <a href="#">
-          <img src={low.url} style={{height:"20px",paddingRight:"5px"}}/>
+          <img src={low.url} style={{ height: "20px", paddingRight: "5px" }} />
         </a>
       </>
     );
@@ -126,18 +134,19 @@ const Header = (props: any) => {
                   backgroundColor: "red",
                   display: "flex",
                   height: "30px",
-                  paddingRight: "89px",
+                  paddingRight: "69px",
                   color: "white",
                   float: "right",
                 }}
-              ><a href={props.store.upperCtaStore.link}>
-                {props.store.upperCtaStore.label}</a>
+              >
+                <a href={props.store.upperCtaStore.link}>
+                  {props.store.upperCtaStore.label}
+                </a>
               </button>
               <div>
                 <label>{props.licon.lowerHeaderShop.label}</label>
-                 
               </div>
-              <div style={{display:"flex",float:"right"}}>{lowericon}</div>
+              <div style={{ display: "flex", float: "right" }}>{lowericon}</div>
             </button>
             <div
               style={{
@@ -150,7 +159,6 @@ const Header = (props: any) => {
             >
               {icons}
               <br />
-
             </div>
           </div>
 
