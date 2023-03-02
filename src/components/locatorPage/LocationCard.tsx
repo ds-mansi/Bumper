@@ -60,7 +60,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
     .replaceAll(" ", "-");
   var initialregion: any = region.toString();
   var finalregion: any = initialregion.replaceAll(" ", "-");
-  var city: any = result.rawData.address.city?.toLowerCase();
+  var city: any = result.rawData.address.city?.toLowerCase()?.replaceAll(" ", "-");;
   var initialrcity: any = city.toString();
   var finalcity: any = initialrcity.replaceAll(" ", "-");
   var string: any = name.toString();
