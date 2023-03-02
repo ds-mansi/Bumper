@@ -182,7 +182,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_title
               ? document.c_meta_title
-              : `Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`
+              : `Bumper to Bumper Near Me - Find MGM Bumper Branch Locator Here.`
           }`,
         },
       },
