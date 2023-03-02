@@ -96,7 +96,7 @@ const Header = (props: any) => {
                 color: "black",
                 backgroundColor: "red",
                 padding: "0px 15px",
-                width: "100%",
+                // width: "100%",
                 height: "30px",
                 fontSize: "14px",
                 width: "784px",
@@ -120,8 +120,8 @@ const Header = (props: any) => {
             </div>
           </div>
           <div style={{ display: "flex", width: "224px", height: "30px" }}>
-            <form>
-              <label
+            <button>
+              <button
                 style={{
                   backgroundColor: "red",
                   display: "flex",
@@ -130,15 +130,15 @@ const Header = (props: any) => {
                   color: "white",
                   float: "right",
                 }}
-              >
-                {props.store.upperCtaStore.label}
-              </label>
+              ><a href={props.store.upperCtaStore.link}>
+                {props.store.upperCtaStore.label}</a>
+              </button>
               <div>
                 <label>{props.licon.lowerHeaderShop.label}</label>
                  
               </div>
               <div style={{display:"flex",float:"right"}}>{lowericon}</div>
-            </form>
+            </button>
             <div
               style={{
                 display: "flex",

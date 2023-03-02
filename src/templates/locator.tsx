@@ -171,7 +171,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `View Bumper Store near you today at Bumper to Bumper. We stock high-quality, robust products at competitive rates.`
+              : `View Bumper near you today at Bumper to Bumper. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -182,7 +182,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_title
               ? document.c_meta_title
-              : `Bumper Store Near Me - Find Bumper to Bumper Branch Locator Here.`
+              : `Timber Merchants Near Me - Find MGM Timber Branch Locator Here.`
           }`,
         },
       },
