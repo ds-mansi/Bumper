@@ -935,6 +935,7 @@ nav[aria-label="Pagination"] button:disabled {
 .sec-title h2,
 .sec-title h1 {
   @apply text-center text-2xl font-second-main-font md:text-[1.75rem] text-red;
+  color: #eb0000;
 }
 .sec-title h1 {
   @apply mb-5;
@@ -1325,6 +1326,9 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .region-list .storelocation-category a {
   @apply p-6 text-center shadow-[0_3px_5px_rgba(243,243,243,1)] bg-white rounded-md w-full inline-block align-top leading-6 transition-all duration-300 text-sm md:text-base hover:bg-red hover:text-white h-full flex items-center justify-center;
+}
+.region-list .storelocation-category a:hover{
+  background-color: #eb0000;
 }
 .content-list.city-page {
   @apply pb-10 md:pb-14;

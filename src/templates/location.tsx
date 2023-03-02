@@ -564,7 +564,6 @@ const Location: Template<ExternalApiRenderData> = ({
             _site={_site}
             labels={_site.c_upperHeader.upperHeaderNav}
             store={_site?.c_upperHeader}
-            icon={_site?.c_upperHeader?.upperHeaderIcon}
             lhead={_site?.c_lowerHeader?.lowerHeaderNav}
             licon={_site?.c_lowerHeader}
             limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}

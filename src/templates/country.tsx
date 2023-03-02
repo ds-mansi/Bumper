@@ -13,18 +13,21 @@ import {
 import BreadCrumbs from "../components/layouts/Breadcrumb";
 import constant from "../constant";
 import Banner from "../components/locationDetail/banner";
-import PageLayout from "../components/layouts/PageLayout";
-import { favicon, stagingBaseurl } from "../../sites-global/global";
 import { StaticData } from "../../sites-global/staticData";
+import PageLayout from "../components/layouts/PageLayout";
+import { favicon, regionNames, stagingBaseurl } from "../../sites-global/global";
+import Header from "../components/layouts/header";
+import Footer from "../components/layouts/footer";
 
 
 
 /**
  * Required when Knowledge Graph data is used for a template.
  */
+var currentUrl = "";
 export const config: TemplateConfig = {
   stream: {
-    $id: "region",
+    $id: "matlan-country",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
     fields: [
@@ -32,29 +35,35 @@ export const config: TemplateConfig = {
       "uid",
       "meta",
       "name",
-      "address",
+      "description",
       "slug",
-      "dm_directoryParents.name",
-      "dm_directoryParents.slug",
-      "dm_directoryParents.dm_directoryChildrenCount",
-      "dm_directoryParents.meta.entityType",
       "dm_directoryChildren.name",
-      "dm_directoryChildren.address",
       "dm_directoryChildren.slug",
       "dm_directoryChildren.dm_directoryChildrenCount",
-      "dm_directoryChildren.dm_directoryChildren.name",
-      "dm_directoryChildren.dm_directoryChildren.id",
-      "dm_directoryChildren.dm_directoryChildren.slug",
-      "dm_directoryChildren.dm_directoryChildren.address"
+      "dm_directoryParents.name",
+      "dm_directoryParents.slug",
+      "dm_directoryParents.meta.entityType",
+      // "c_globalData.c_headerLinks1",
+      // "c_globalData.c_footerLinks",
+      // "c_globalData.facebookPageUrl",
+      // "c_globalData.twitterHandle",
+      // "c_globalData.instagramHandle",
+      // "c_globalData.address",
+      // "c_globalData.c_phoneNumber",
+      // "c_globalData.c_companyrn",
+      // "c_globalData.c_tikTok",
+      //seo section
+      // "c_canonical",
+      // "c_metaDescription",
+      // "c_metaTitle",
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
-      entityTypes: ["ce_region"],
-      savedFilterIds: ["dm_matalan-stores-directory_address_region"]
+      entityTypes: ["ce_country"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {
-      locales: ["en_GB"],
+      locales: ["en"],
       primary: false,
     },
   },
@@ -62,17 +71,9 @@ export const config: TemplateConfig = {
 
 
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
-  let url = "";
-  document.dm_directoryParents.map((i: any) => {
-    if (i.meta.entityType.id == 'ce_country') {
-      url += i.slug + "/";
-    }
-  });
-  url += document.slug.toString();
-
-  return url + '.html';
+  currentUrl = "/" + document.slug.toString() + ".html";
+  return "/" + document.slug.toString() + ".html";
 };
-
 
 // export const getRedirects: GetRedirects<TemplateProps> = ({ document }) => {
 //   return [`index-old/${document.id.toString()}`];
@@ -84,13 +85,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   path,
   document,
 }): HeadConfig => {
-  var canonical="";
-  document.dm_directoryParents.map((entity: any) => {
-    
-      canonical=entity.slug.toLowerCase();
-    })
-   
-   
+  
   return {
     title: `${document.c_meta_title?document.c_meta_title:`MGM Stores in ${document.name} | Find a Local Store`}`,
     charset: "UTF-8",
@@ -111,13 +106,6 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           },
         },
 
-      //   {
-      //     type: "meta",
-      //     attributes: {
-      //       name: "title",
-      //       content: `${document.c_metaTitle}`,
-      //     },
-      //   },
         {
           type: "meta",
           attributes: {
@@ -145,8 +133,8 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           attributes: {
             rel: "canonical",
             href: `${
-             stagingBaseurl
-                 ? stagingBaseurl+ canonical + "/" + document.slug + ".html"
+              stagingBaseurl 
+                 ? stagingBaseurl + document.slug + ".html"
                  : "/" + document.slug + ".html"
             }`,
           },
@@ -157,11 +145,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           type: "meta",
           attributes: {
             property: "og:url",
-            content:`${
-              stagingBaseurl
-                  ? stagingBaseurl+ canonical + "/" + document.slug + ".html"
-                  : "/" + document.slug + ".html"
-             }`,
+            content: `/${document.slug?document.slug:`${document.name.toLowerCase()}`}.html`,
           },
         },
         {
@@ -212,54 +196,76 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   };
 };
 
-const region: Template<TemplateRenderProps> = ({
+
+
+const country: Template<TemplateRenderProps> = ({
   relativePrefixToRoot,
   path,
   document,
 }) => {
+  const { description, dm_directoryChildren, dm_directoryParents, c_tagline } =
+  document;
   const {
     name,
-    _site,
     slug,
-    address,
-    c_banner_image,
-    c_bannerHeading,
-    dm_directoryParents,
-    dm_directoryChildren
+    c_globalData,
+    _site,
+    c_metaDescription,
+    c_metaTitle,
+    __meta,
   } = document;
   const childrenDivs = dm_directoryChildren ? dm_directoryChildren.map((entity: any) => {
     let detlslug;
 
 
     if (typeof entity.dm_directoryChildren != "undefined") {
-
       if (entity.dm_directoryChildrenCount == 1) {
         entity.dm_directoryChildren.map((res: any) => {
-         console.log(res,"res")
+
           let detlslug1 = "";
 
           if (!res.slug) {
-            let slugString = res.id + "-" + res.name.toLowerCase();
+            let slugString = res.id + " " + res.name;
             let slug = slugString;
             detlslug1 = `${slug}.html`;
           } else {
             detlslug1 = `${res.slug.toString()}.html`;
           }
+          if (res.meta.entityType.id == 'ce_city') {
+            detlslug1 = "gb/" + detlslug1;
+          } else {
+            detlslug1 = detlslug1;
+          }
 
-          detlslug = detlslug1;
+          // console.log(entity.name, res);
+
+          res.dm_directoryChildren ? res.dm_directoryChildren.map((detl: any) => {
+
+            if (!detl.slug) {
+              let slugString = detl.id + " " + detl.name;
+              let slug =slugString;
+              detlslug1 = `${slug}.html`;
+            } else {
+              detlslug1 = `${detl.slug.toString()}.html`;
+            }
+
+            detlslug = detlslug1;
+
+          }) : detlslug = detlslug1;
+
 
         })
-      } else {
-        detlslug = "gb/" + slug + "/" + entity.slug + ".html";
       }
-
+      else {
+        detlslug = slug + "/" + entity.slug + ".html";
+      }
     }
 
     return (
       <li className=" storelocation-category">
         <a
           key={entity.slug}
-          href={stagingBaseurl  + detlslug}
+          href={stagingBaseurl + detlslug}
         >
           {entity.name} ({entity.dm_directoryChildrenCount})
         </a>
@@ -267,39 +273,65 @@ const region: Template<TemplateRenderProps> = ({
     )
   }) : null;
 
- 
 
-  let bannerimage = c_banner_image && c_banner_image.image.url;
+  // let bannerimage = c_locatorBannerImage ? c_locatorBannerImage.map((element: any) => {
+  //   return element.url
+  // }) : null;
+
   return (
     <>
-        <PageLayout global={_site}>
+    <Header
+            _site={_site}
+            labels={_site.c_upperHeader.upperHeaderNav}
+            store={_site?.c_upperHeader}
+            lhead={_site?.c_lowerHeader?.lowerHeaderNav}
+            licon={_site?.c_lowerHeader}
+            limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
+            
+          />
         <BreadCrumbs
-            name={name}
-            parents={dm_directoryParents}
-            baseUrl={relativePrefixToRoot}
-            address={address}
-          ></BreadCrumbs>
-          {/* <div className="location-dtl">     <Banner name={c_bannerHeading?c_bannerHeading:name} c_bannerImage={bannerimage}  /></div> */}
-          
+          name={regionNames.of(name)}
+          address={undefined}
+          parents={dm_directoryParents}
+          baseUrl={relativePrefixToRoot}
+        ></BreadCrumbs>
+        {/* <div className="location-dtl">
+          <Banner name={regionNames.of(name)} c_bannerImage={bannerimage} />
+        </div> */}
 
-          <div className="content-list">
-            <div className="container">
+
+
+        <div className="content-list">
+          <div className="container">
             <div className="sec-title">
-                <h2 style={{ textAlign: "center" }}>
-              {name}
-                </h2>
-              </div>
-              <ul className="region-list">
-
-                {childrenDivs}
-              </ul>
-
+              <h2 style={{ textAlign: "center" }}>
+                {StaticData.AllRegion} {regionNames.of(name)}{" "}
+              </h2>
             </div>
-          </div>
 
-          
-        </PageLayout>
+            <ul className="region-list">
+
+              {childrenDivs}
+            </ul>
+
+          </div>
+        </div>
+        <Footer
+          _site={_site?.c_lowerFooter}
+          ufooter={_site?.c_upperFooter?.upperFooterLabel}
+          upfooter={_site?.c_upperFooter}
+          subscribe={_site?.c_upperFooter?.subscribeCta}
+          copy={_site?.c_lowerFooter}
+          tandc={_site?.c_lowerFooter?.tAndC}
+          aboutimg={_site?.c_about?.aboutImage}
+          abouthead={_site?.c_about}
+          aboutcta={_site?.c_about?.aboutCTA}
+          about2img={_site?.c_about2?.about2Image}
+          abouthead2={_site?.c_about2}
+          about2cta={_site?.c_about2?.about2CTA}
+          />
     </>
-  )
-}
-export default region;
+  );
+};
+
+export default country;

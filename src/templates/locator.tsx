@@ -234,14 +234,14 @@ const Locator: Template<TemplateRenderProps> = ({ document, __meta }) => {
       >
         {" "}
         <AnalyticsScopeProvider name={""}>
-          <Header
+        <Header
             _site={_site}
             labels={_site.c_upperHeader.upperHeaderNav}
             store={_site?.c_upperHeader}
-            icon={_site?.c_upperHeader?.upperHeaderIcon}
             lhead={_site?.c_lowerHeader?.lowerHeaderNav}
             licon={_site?.c_lowerHeader}
             limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
+            
           />
           <div style={{ display: "flex" }}>
             <div style={{ width: "70%", padding: "50px" }}>

@@ -10,6 +10,8 @@ import {
 import * as React from "react";
 import { favicon } from "../../sites-global/global";
 import { StaticData } from "../../sites-global/staticData";
+import Footer from "../components/layouts/footer";
+import Header from "../components/layouts/header";
 import PageLayout from "../components/layouts/PageLayout";
 export const config: TemplateConfig = {
   stream: {
@@ -62,7 +64,15 @@ const FourOhFour: Template<TemplateRenderProps> = ({
   } = document;
   return (
     <>
-      <PageLayout global={_site}>
+      <Header
+            _site={_site}
+            labels={_site.c_upperHeader.upperHeaderNav}
+            store={_site?.c_upperHeader}
+            lhead={_site?.c_lowerHeader?.lowerHeaderNav}
+            licon={_site?.c_lowerHeader}
+            limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
+            
+          />
         <div className="content-list">
           <div className="container">
             <div className="sec-title text-center">
@@ -80,7 +90,20 @@ const FourOhFour: Template<TemplateRenderProps> = ({
 
           </div>
         </div>
-      </PageLayout>
+        <Footer
+          _site={_site?.c_lowerFooter}
+          ufooter={_site?.c_upperFooter?.upperFooterLabel}
+          upfooter={_site?.c_upperFooter}
+          subscribe={_site?.c_upperFooter?.subscribeCta}
+          copy={_site?.c_lowerFooter}
+          tandc={_site?.c_lowerFooter?.tAndC}
+          aboutimg={_site?.c_about?.aboutImage}
+          abouthead={_site?.c_about}
+          aboutcta={_site?.c_about?.aboutCTA}
+          about2img={_site?.c_about2?.about2Image}
+          abouthead2={_site?.c_about2}
+          about2cta={_site?.c_about2?.about2CTA}
+          />
     </>
   );
 };

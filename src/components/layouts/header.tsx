@@ -34,24 +34,24 @@ const Header = (props: any) => {
   // console.log(props.store.upperCtaStore, "data");
   console.log(props.licon.lowerHeaderIcon, "uadgyhgawvhgagvdhgavg");
 
-  const icons = props?.icon?.map((ico: any) => {
-    // console.log("objectssssssssssssss",ico)
-    return (
-      <>
-        <a
-          style={{
-            height: "18px",
-            width: "18px",
-            display: "flex",
-            backgroundColor: "red",
-            margin:"5px"
-          }}
-        >
-          <img src={ico.url} style={{display: "flex",}}/>
-        </a>
-      </>
-    );
-  });
+  // const icons = props?.icon?.map((ico: any) => {
+  //   // console.log("objectssssssssssssss",ico)
+  //   return (
+  //     <>
+  //       <a
+  //         style={{
+  //           height: "18px",
+  //           width: "18px",
+  //           display: "flex",
+  //           backgroundColor: "red",
+  //           margin:"5px"
+  //         }}
+  //       >
+  //         <img src={ico.url} style={{display: "flex",}}/>
+  //       </a>
+  //     </>
+  //   );
+  // });
 
   const lhead = props?.lhead?.map((head: any) => {
     // console.log("hbsdjhbswjsjbgsj",head)
@@ -68,7 +68,7 @@ const Header = (props: any) => {
     return (
       <>
         <a href="#">
-          <img src={low.url} style={{ height: "20px", paddingRight: "5px" }} />
+          <img src={low.url} style={{ height: "20px" }} />
         </a>
       </>
     );
@@ -103,7 +103,7 @@ const Header = (props: any) => {
               style={{
                 color: "black",
                 backgroundColor: "red",
-                padding: "0px 15px",
+                // padding: "0px 15px",
                 // width: "100%",
                 height: "30px",
                 fontSize: "14px",
@@ -127,15 +127,20 @@ const Header = (props: any) => {
               </div>
             </div>
           </div>
-          <div style={{display:"inline-block"}}>
-          <div style={{ display: "flex", width: "224px", height: "30px" }}>
-            <button>
+          <div style={{ display: "inline-block" }}>
+            <div
+              style={{
+                width: "224px",
+                height: "30px",
+                backgroundColor: "red",
+              }}
+            >
               <button
                 style={{
                   backgroundColor: "red",
-                  display: "flex",
+
                   height: "30px",
-                  paddingRight: "69px",
+                  paddingRight: "75px",
                   color: "white",
                   float: "right",
                 }}
@@ -144,24 +149,17 @@ const Header = (props: any) => {
                   {props.store.upperCtaStore.label}
                 </a>
               </button>
-              <div>
-                <label>{props.licon.lowerHeaderShop.label}</label>
-              </div>
-              <div style={{ display: "flex", float: "right" }}>{lowericon}</div>
-            </button>
-            <div
-              style={{
-                display: "flex",
-                backgroundColor: "red",
-                height: "30px",
-                paddingTop: "5px",
-                paddingRight: "5px ",
-              }}
-            >
-              {icons}
-              <br />
+              <button>
+                <div style={{ display: "flex" }}>
+                  <div style={{padding:"19px"}}>
+                    <label>{props.licon.lowerHeaderShop.label}</label>
+                  </div>
+                  <div style={{ display: "flex", float: "right" , paddingTop:"20px",paddingLeft:"25px"}}>
+                    {lowericon}
+                  </div>
+                </div>
+              </button>
             </div>
-          </div>
           </div>
           <div
             style={{
