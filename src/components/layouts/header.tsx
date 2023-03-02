@@ -127,6 +127,7 @@ const Header = (props: any) => {
               </div>
             </div>
           </div>
+          <div style={{display:"inline-block"}}>
           <div style={{ display: "flex", width: "224px", height: "30px" }}>
             <button>
               <button
@@ -161,7 +162,7 @@ const Header = (props: any) => {
               <br />
             </div>
           </div>
-
+          </div>
           <div
             style={{
               backgroundColor: "#202124",
