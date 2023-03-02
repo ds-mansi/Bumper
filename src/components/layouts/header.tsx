@@ -47,7 +47,7 @@ const Header = (props: any) => {
             margin:"5px"
           }}
         >
-          <img src={ico.url} />
+          <img src={ico.url} style={{display: "flex",}}/>
         </a>
       </>
     );
