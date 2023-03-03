@@ -243,7 +243,7 @@ const country: Template<TemplateRenderProps> = ({
             return (
               <li className=" storelocation-category">
                 <a key={entity.slug} href={slug + "/" + (entity.name).toLowerCase() + "/"+ childCityName +".html"}>
-                  {entity.name} M({entity.dm_directoryChildrenCount})
+                  {entity.name} ({entity.dm_directoryChildrenCount})
                 </a>
               </li>
             );
