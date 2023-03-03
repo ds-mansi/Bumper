@@ -182,7 +182,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_title
               ? document.c_meta_title
-              : `Bumper to Bumper Near Me - Find MGM Bumper Branch Locator Here.`
+              : `Bumper to Bumper Near Me - Find Bumper Branch Locator Here.`
           }`,
         },
       },
@@ -222,7 +222,7 @@ const Locator: Template<TemplateRenderProps> = ({ document, __meta }) => {
         item={{
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "MGM ",
+          name: "Bumper",
           url: stagingBaseurl,
           logo: favicon,
         }}
