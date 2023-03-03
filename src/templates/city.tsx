@@ -196,7 +196,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find Bumper Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
+              : `Find Bumper to Bumper Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },
@@ -239,7 +239,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
           content: `${
             document.c_meta_description
               ? document.c_meta_description
-              : `Find Bumper Timber Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
+              : `Find Bumper Bumper to Bumper Store in ${document.name}. We stock high-quality, robust products at competitive rates.`
           }`,
         },
       },

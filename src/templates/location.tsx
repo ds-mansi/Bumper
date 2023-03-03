@@ -151,7 +151,7 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = ({
   return {
     title: document.c_meta_title
       ? document.c_meta_title
-      : `${document.name} Store of MGM Timber`,
+      : `${document.name} Store of Bumper to Bumper`,
     charset: "UTF-8",
     viewport: "width=device-width, initial-scale=1",
     tags: [
