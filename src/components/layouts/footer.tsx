@@ -133,7 +133,7 @@ const Footer = (props: any) => {
                 padding: "5px 50px 5px 20px",
               }}
             >
-              <a>{props.subscribe.label}</a>
+              <a href={props.subscribe.link}>{props.subscribe.label}</a>
             </button>
           </div>
         </div>
