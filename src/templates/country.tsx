@@ -220,7 +220,8 @@ const country: Template<TemplateRenderProps> = ({
     c_metaTitle,
     __meta,
   } = document;
-  console.log(dm_directoryChildren,"dm_directoryChildren");
+  // console.log(dm_directoryChildren,"dm_directoryChildren");
+  // condition of slug acc to count of cities in region 
   const childrenDivs = dm_directoryChildren
     ? dm_directoryChildren.map((entity: any) => {
         console.log(entity, "entity");
@@ -265,6 +266,7 @@ const country: Template<TemplateRenderProps> = ({
 
   return (
     <>
+    {/* header call */}
       <Header
         _site={_site}
         labels={_site.c_upperHeader.upperHeaderNav}
@@ -273,12 +275,15 @@ const country: Template<TemplateRenderProps> = ({
         licon={_site?.c_lowerHeader}
         limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
       />
+      {/* header ends */}
+      {/* breadcrumb call */}
       <BreadCrumbs
         name={regionNames.of(name)}
         address={undefined}
         parents={dm_directoryParents}
         baseUrl={relativePrefixToRoot}
       ></BreadCrumbs>
+      {/* breadcrumb end */}
       {/* <div className="location-dtl">
           <Banner name={regionNames.of(name)} c_bannerImage={bannerimage} />
         </div> */}
@@ -294,6 +299,7 @@ const country: Template<TemplateRenderProps> = ({
           <ul className="region-list">{childrenDivs}</ul>
         </div>
       </div>
+      {/* Footer starts */}
       <Footer
         _site={_site?.c_lowerFooter}
         ufooter={_site?.c_upperFooter?.upperFooterLabel}
@@ -308,6 +314,7 @@ const country: Template<TemplateRenderProps> = ({
         abouthead2={_site?.c_about2}
         about2cta={_site?.c_about2?.about2CTA}
       />
+      {/* footer ends */}
     </>
   );
 };

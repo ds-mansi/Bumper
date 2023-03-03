@@ -273,7 +273,7 @@ export const transformProps: TransformProps<ExternalApiData> = async (
   }`;
 
   const url = `https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=2500&location=${data.document.yextDisplayCoordinate.latitude},${data.document.yextDisplayCoordinate.longitude}&api_key=7636b8bb589ab6337d4fc231953b4006&v=20181201&resolvePlaceholders=true&entityTypes=location&limit=4`;
-  console.log(url);
+  // console.log(url);
   const externalApiData = (await fetch(url).then((res: any) =>
     res.json()
   )) as nearByLocation;
@@ -314,6 +314,8 @@ const Location: Template<ExternalApiRenderData> = ({
     name,
   } = document;
 
+  // services section map start 
+
   const services = c_service?.map((link: any) => {
     console.log("objectsaeffsfsf", link);
     return (
@@ -326,6 +328,7 @@ const Location: Template<ExternalApiRenderData> = ({
       </>
     );
   });
+   // services section icon map start
   const serviceicon = c_service?.map((res: any) => {
     return (
       <>

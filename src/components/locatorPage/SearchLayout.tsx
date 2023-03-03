@@ -87,9 +87,10 @@ const SearchLayout = (props: any): JSX.Element => {
       );
     }
     params1 = {
-      latitude: 54.9191,
-      longitude: -1.3692,
+      latitude: 43.65107,
+      longitude: -79.347015,
     };
+
     SetNewparam(params1);
     // mapzoom=8;
     searchActions.setUserLocation(params1);

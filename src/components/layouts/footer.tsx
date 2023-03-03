@@ -13,7 +13,7 @@ type props = {
   about2img: any;
   about2cta: any;
 };
-
+// props call 
 const Footer = (props: any) => {
   //   console.log(props.links);
   //   console.log("copyright",props.copy.copyright)
@@ -23,7 +23,7 @@ const Footer = (props: any) => {
   const toggle = () => {
     (document.getElementById("body") as HTMLInputElement).classList.toggle("");
   };
-
+// map for upperfooter nav
   const ufooter = props?.ufooter?.map((link: any) => {
     return (
       <>
@@ -35,9 +35,10 @@ const Footer = (props: any) => {
       </>
     );
   });
-
+// subscribe button in upperfooter
   const upfooter = props?.upfooter?.subscribeLabel;
 
+  // terms and condition call in lowerfooter
   const tandc = props?.tandc?.map((res: any) => {
     return (
       <>
@@ -57,6 +58,7 @@ const Footer = (props: any) => {
         <div style={{ display: "flex", height: "100%" }}>
           <div style={{ width: "50%" }}>
             <div style={{ display: "flex" }}>
+              {/* about1 section in footer starts */}
               {props?.aboutimg?.map((img: any) => {
                 // console.log(props.aboutimg, "adefsgedg");
                 return (
@@ -87,6 +89,8 @@ const Footer = (props: any) => {
               </div>
             </div>
           </div>
+          {/* about1 section in footer ends */}
+          {/* about2 section in footer starts */}
           <div
             style={{
               display: "flex",
@@ -122,10 +126,15 @@ const Footer = (props: any) => {
           </div>
         </div>
       </div>
+      {/* about2 section in footer ends */}
+      {/* lower footer call */}
       <footer className="upperfooter">
+        {/* upper footer nav */}
         <div style={{ display: "flex", width: "50%" }}>{ufooter}</div>
         <div style={{ paddingLeft: "10%", display: "flex", paddingTop: "4%" }}>
+          {/* upper footer subscribe label */}
           <div style={{ paddingRight: "90px" }}>{upfooter}</div>
+          {/* upper footer subscribe button */}
           <div>
             <button 
               style={{
@@ -138,9 +147,12 @@ const Footer = (props: any) => {
           </div>
         </div>
       </footer>
+
+      {/* lower footer starts */}
       <div
         style={{ width: "100%", display: "flex", backgroundColor: "#f4f4f4" }}
       >
+        {/* lower footer copyright */}
         <p
           style={{
             width: "50%",
@@ -151,6 +163,7 @@ const Footer = (props: any) => {
         >
           {props.copy.copyright}
         </p>
+        {/* terms and condition  in lower footer */}
         <div className="tandc-footer">{tandc}</div>
       </div>
     </>

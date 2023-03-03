@@ -4,7 +4,7 @@ export const AnswerExperienceConfig = {
   locale: "en",
   apiKey : "9dfc47905f9c0f2846a495cc849fc764",
   verticalKey : "locations",
-  experienceKey : "bumper-to-bumper",
+  experienceKey : "bumper",
   experienceVersion: "STAGING",
   locationRadius: 804672,
   sessionTrackingEnabled: true,
