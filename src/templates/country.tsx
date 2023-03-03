@@ -41,6 +41,8 @@ export const config: TemplateConfig = {
       "slug",
       "dm_directoryChildren.name",
       "dm_directoryChildren.slug",
+      "dm_directoryChildren.dm_directoryChildren.name",
+      "dm_directoryChildren.dm_directoryChildren.dm_directoryChildren.name",
       "dm_directoryChildren.dm_directoryChildrenCount",
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
@@ -218,57 +220,42 @@ const country: Template<TemplateRenderProps> = ({
     c_metaTitle,
     __meta,
   } = document;
+  console.log(dm_directoryChildren,"dm_directoryChildren");
   const childrenDivs = dm_directoryChildren
     ? dm_directoryChildren.map((entity: any) => {
-        console.log(entity.slug, "entity");
+        console.log(entity, "entity");
         let detlslug;
 
-        if (typeof entity.dm_directoryChildren != "undefined") {
-          if (entity.dm_directoryChildrenCount == 1) {
-            entity.dm_directoryChildren.map((res: any) => {
-              let detlslug1 = "";
-
-              if (!res.slug) {
-                let slugString = res.id + " " + res.name;
-                let slug = slugString;
-                detlslug1 = `${slug}.html`;
-              } else {
-                detlslug1 = `${res.slug.toString()}.html`;
-              }
-              if (res.meta.entityType.id == "ce_city") {
-                detlslug1 = "gb/" + detlslug1;
-              } else {
-                detlslug1 = detlslug1;
-              }
-
-              // console.log(entity.name, res);
-
-              res.dm_directoryChildren
-                ? res.dm_directoryChildren.map((detl: any) => {
-                    if (!detl.slug) {
-                      let slugString = detl.id + " " + detl.name;
-                      let slug = slugString;
-                      detlslug1 = `${slug}.html`;
-                    } else {
-                      detlslug1 = `${detl.slug.toString()}.html`;
-                    }
-
-                    detlslug = detlslug1;
-                  })
-                : (detlslug = detlslug1);
-            });
-          } else {
-            detlslug = slug + "/" + entity.slug + ".html";
-          }
+       
+        let mainSlug = "";
+        if(entity.dm_directoryChildrenCount==1){
+            let cityChild = entity.dm_directoryChildren ? entity.dm_directoryChildren : null;
+            let childCityName = cityChild.map((res:any)=>{
+              let storesName = res.dm_directoryChildren;
+              let storesChildName = storesName.map((stores:any)=>{
+                return (stores.name);
+              })
+              let cityName = (res.name).toLowerCase().replaceAll(" ", "-");
+             let slugUrl = cityName + "/" + storesChildName;
+              return slugUrl
+            })
+            mainSlug = "this";
+            return (
+              <li className=" storelocation-category">
+                <a key={entity.slug} href={slug + "/" + (entity.name).toLowerCase() + "/"+ childCityName +".html"}>
+                  {entity.name} M({entity.dm_directoryChildrenCount})
+                </a>
+              </li>
+            );
         }
-
         return (
           <li className=" storelocation-category">
             <a key={entity.slug} href={slug + "/" + entity.slug + ".html"}>
-              {entity.name} ({entity.dm_directoryChildrenCount})
+              {entity.name} M({entity.dm_directoryChildrenCount})
             </a>
           </li>
         );
+        
       })
     : null;
 
