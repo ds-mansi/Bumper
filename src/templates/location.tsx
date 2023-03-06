@@ -88,7 +88,6 @@ export const config: TemplateConfig = {
       "dm_directoryParents.slug",
       "dm_directoryParents.meta.entityType",
       "dm_directoryParents.c_addressRegionDisplayName",
-      
     ],
     // Defines the scope of entities that qualify for this stream.
     filter: {
@@ -111,19 +110,18 @@ export const config: TemplateConfig = {
 export const getPath: GetPath<TemplateProps> = ({ document }) => {
   var url = "";
   var name: any = document.name.toLowerCase();
-  var string: any = name.toString();;
+  var string: any = name.toString();
   let result: any = string.replaceAll(" ", "-");
   document?.dm_directoryParents?.map((result: any, i: Number) => {
     if (i > 0) {
-      url += result.slug + "/"
+      url += result.slug + "/";
     }
-  })
+  });
   if (!document.slug) {
     url += `${result}.html`;
   } else {
     url += `${document.slug.toString()}.html`;
   }
-  
 
   return url;
 };
@@ -315,7 +313,7 @@ const Location: Template<ExternalApiRenderData> = ({
     name,
   } = document;
 
-  // services section map start 
+  // services section map start
 
   const services = c_service?.map((link: any) => {
     // console.log("objectsaeffsfsf", link);
@@ -329,7 +327,7 @@ const Location: Template<ExternalApiRenderData> = ({
       </>
     );
   });
-   // services section icon map start
+  // services section icon map start
   const serviceicon = c_service?.map((res: any) => {
     return (
       <>
@@ -339,8 +337,6 @@ const Location: Template<ExternalApiRenderData> = ({
       </>
     );
   });
-
-
 
   let templateData = { document: document, __meta: __meta };
   let hoursSchema = [];
@@ -513,9 +509,8 @@ const Location: Template<ExternalApiRenderData> = ({
             lhead={_site?.c_lowerHeader?.lowerHeaderNav}
             licon={_site?.c_lowerHeader}
             limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
-            
           />
-           {/* banner section starts */}
+          {/* banner section starts */}
           <div style={{ display: "flex" }}>
             <div style={{ width: "60%" }}>
               <h1
@@ -535,14 +530,11 @@ const Location: Template<ExternalApiRenderData> = ({
               <br />
               <div>
                 <button
-                  style={{
-                    border: "1px solid black",
-                    padding: "5px",
-                    marginLeft: "100px",
-                    marginTop: "50px",
-                  }}
+                  className="bannerCta"
                 >
-                  <a href={c_banner?.link}>{c_banner?.bannerCTA?.label}</a>
+                  <a href={c_banner?.bannerCTA?.link}>
+                    {c_banner?.bannerCTA?.label}
+                  </a>
                 </button>
               </div>
             </div>
@@ -552,15 +544,15 @@ const Location: Template<ExternalApiRenderData> = ({
               </a>
             </div>
           </div>
-           {/* banner section end */}
-           {/* breadcrumb */}
+          {/* banner section end */}
+          {/* breadcrumb */}
           <BreadCrumbs
             name={name}
             parents={dm_directoryParents}
             baseUrl={relativePrefixToRoot}
             address={address}
           ></BreadCrumbs>
-          
+
           {/* map */}
           <div className="location-information">
             {hours ? (
@@ -632,7 +624,7 @@ const Location: Template<ExternalApiRenderData> = ({
           <div className="nearby-sec">
             <div className="container">
               <div className="sec-title">
-                <h2 style={{color:"red"}}>{StaticData.NearStoretext}</h2>
+                <h2 style={{ color: "red" }}>{StaticData.NearStoretext}</h2>
               </div>
               <div className="nearby-sec-inner">
                 {yextDisplayCoordinate ||
@@ -646,7 +638,6 @@ const Location: Template<ExternalApiRenderData> = ({
             </div>
           </div>
         </AnalyticsScopeProvider>
-
         {/* footer */}
         <Footer
           _site={_site?.c_lowerFooter}
@@ -661,7 +652,7 @@ const Location: Template<ExternalApiRenderData> = ({
           about2img={_site?.c_about2?.about2Image}
           abouthead2={_site?.c_about2}
           about2cta={_site?.c_about2?.about2CTA}
-          />
+        />
       </AnalyticsProvider>
     </>
   );

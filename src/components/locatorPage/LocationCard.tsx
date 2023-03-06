@@ -140,7 +140,10 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
               {result.rawData.hours ? (
                 <>
                   <div className="open-close ">
-                    <h5>Open Hours</h5>
+                    <div className="flex mt-2">
+                  <img src={timesvg} style={{height:"25px",width:"25px",margin:"5px"}}/>
+                    <h5 className="flex">Open Hours</h5>
+                    </div>
                     <div className="hours-sec onhighLight">
                       <div className="OpenCloseStatus ">
                         <div className="hours-labels">

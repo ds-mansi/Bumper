@@ -16,7 +16,7 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import { Link } from "@yext/pages/components";
 import phone from "../../images/phone.svg";
 import { StaticData } from "../../../sites-global/staticData";
-import {time} from "../../images/time.svg";
+import { time } from "../../images/time.svg";
 
 export default function Nearby(props: any) {
   // console.log("object",props)
@@ -70,15 +70,15 @@ export default function Nearby(props: any) {
         var string: any = name.toString();
         let result1: any = string.replaceAll(" ", "-");
         var link =
-        country +
-        "/" +
-        region +
-        "/" +
-        city +
-        "/" +
-        location.slug?.toString() +
-        ".html";
-          // console.log(link,"link")
+          country +
+          "/" +
+          region +
+          "/" +
+          city +
+          "/" +
+          location.slug?.toString() +
+          ".html";
+        // console.log(link,"link")
         // var link=location.id?.toString()
         if (!location.slug) {
           url = `/${link}.html`;
@@ -119,42 +119,46 @@ export default function Nearby(props: any) {
                   {/* <img src={mapimage} style={{height:"25px"}}/> */}
                   <Address address={location.address} />
                 </div>
-                <div >
+
                 <div className="icon-row closeing-div flex">
-                {/* <img src={time}/> */}
-                <img src={timesvg} style={{height:"25px",width:"25px"}}/>
-                  {location.hours ? (
-                    <div
-                      className="flex open-now-string items-center "
-                      data-id={`main-shop-${location.id}`}
-                    >
-                      <OpenClose
-                        timezone={location.timezone}
-                        hours={location.hours}
-                        deliveryHours={location.hours}
-                      ></OpenClose>
-                    </div>
-                  ) : (
-                    <div className="closeddot notHighlight red-dot">
-                      
-                      <div className="hours-info text-lg font-second-main-font closeddot">
-                        Closed
+                  {/* <img src={time}/> */}
+                  <div style={{ display: "inline-block" }}>
+                    <img
+                      src={timesvg}
+                      style={{ height: "25px", width: "25px" }}
+                    />
+                  </div>
+                  <div>
+                    {location.hours ? (
+                      <div
+                        className="flex open-now-string items-center "
+                        data-id={`main-shop-${location.id}`}
+                      >
+                        <OpenClose
+                          timezone={location.timezone}
+                          hours={location.hours}
+                          deliveryHours={location.hours}
+                        ></OpenClose>
                       </div>
-                    </div>
-                    
-                  )}
-                </div>
+                    ) : (
+                      <div className="closeddot notHighlight red-dot">
+                        <div className="hours-info text-lg font-second-main-font closeddot">
+                          Closed
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
                 <div className="flex ml-1 mt-2">
                   <img src={phone} style={{ height: "30px" }} />
                   {/* <div>{mainPhone}</div> */}
                   <Link
-                      eventName={"PhoneNumber"}
-                      href={`tel:${mainPhone}`}
-                      rel="noopener noreferrer"
-                    >
-                      {mainPhone}
-                    </Link>
+                    eventName={"PhoneNumber"}
+                    href={`tel:${mainPhone}`}
+                    rel="noopener noreferrer"
+                  >
+                    {mainPhone}
+                  </Link>
                 </div>
                 <div className="button-bx">
                   <Link
