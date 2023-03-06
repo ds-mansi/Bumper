@@ -234,6 +234,7 @@ const Locator: Template<TemplateRenderProps> = ({ document, __meta }) => {
       >
         {" "}
         <AnalyticsScopeProvider name={""}>
+          {/* header added */}
         <Header
             _site={_site}
             labels={_site.c_upperHeader.upperHeaderNav}
@@ -243,6 +244,7 @@ const Locator: Template<TemplateRenderProps> = ({ document, __meta }) => {
             limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
             
           />
+          {/* locator banner starts */}
           <div style={{ display: "flex" }}>
             <div style={{ width: "70%", padding: "50px" }}>
               <h1
@@ -258,7 +260,7 @@ const Locator: Template<TemplateRenderProps> = ({ document, __meta }) => {
             </div>
             <div>{<img src={_site?.c_banner2?.banner2Image?.url} />}</div>
           </div>
-         
+         {/* locatpr banner end */}
           <SearchHeadlessProvider
             experienceKey={AnswerExperienceConfig.experienceKey}
             locale={AnswerExperienceConfig.locale}
@@ -271,6 +273,7 @@ const Locator: Template<TemplateRenderProps> = ({ document, __meta }) => {
             <SearchLayout _site={_site} />
           </SearchHeadlessProvider>
 
+            {/* footer section */}
           <Footer
             _site={_site?.c_lowerFooter}
             ufooter={_site?.c_upperFooter?.upperFooterLabel}

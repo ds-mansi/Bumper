@@ -55,7 +55,7 @@ export default function Nearby(props: any) {
       > */}
       {neabyData?.entities?.map((location: any, index: number) => {
         let url = "";
-        console.log(location.slug,"id")
+        // console.log(location.slug,"id")
         var name: any = location.name?.toLowerCase();
         var mainPhone: any = location?.mainPhone;
         var region: any = location.address.region
@@ -78,7 +78,7 @@ export default function Nearby(props: any) {
         "/" +
         location.slug?.toString() +
         ".html";
-          console.log(link,"link")
+          // console.log(link,"link")
         // var link=location.id?.toString()
         if (!location.slug) {
           url = `/${link}.html`;

@@ -11,13 +11,13 @@ type props = {
 };
 
 const Header = (props: any) => {
-  console.log(props, "bgvugahswgvajgvxdg");
+  // console.log(props, "bgvugahswgvajgvxdg");
   React.useEffect(() => {
     document.body.setAttribute("id", "body");
   });
   // console.log(props.labels,"labels for header")
+  // upper header nav
   const linkDoms = props?.labels?.map((element: any) => {
-    // console.log("sssssssss",element)
 
     return (
       <>
@@ -32,27 +32,10 @@ const Header = (props: any) => {
     );
   });
   // console.log(props.store.upperCtaStore, "data");
-  console.log(props.licon.lowerHeaderIcon, "uadgyhgawvhgagvdhgavg");
+  // console.log(props.licon.lowerHeaderIcon, "uadgyhgawvhgagvdhgavg");
 
-  // const icons = props?.icon?.map((ico: any) => {
-  //   // console.log("objectssssssssssssss",ico)
-  //   return (
-  //     <>
-  //       <a
-  //         style={{
-  //           height: "18px",
-  //           width: "18px",
-  //           display: "flex",
-  //           backgroundColor: "red",
-  //           margin:"5px"
-  //         }}
-  //       >
-  //         <img src={ico.url} style={{display: "flex",}}/>
-  //       </a>
-  //     </>
-  //   );
-  // });
 
+// lower header nav
   const lhead = props?.lhead?.map((head: any) => {
     // console.log("hbsdjhbswjsjbgsj",head)
     return (
@@ -63,7 +46,7 @@ const Header = (props: any) => {
       </>
     );
   });
-
+  // lower header icon
   const lowericon = props?.limg?.map((low: any) => {
     return (
       <>

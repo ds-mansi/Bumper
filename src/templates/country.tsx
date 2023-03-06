@@ -222,9 +222,11 @@ const country: Template<TemplateRenderProps> = ({
   } = document;
   // console.log(dm_directoryChildren,"dm_directoryChildren");
   // condition of slug acc to count of cities in region 
+  // slug on country page if state contains more than 1 cities or region contain only one city
+
   const childrenDivs = dm_directoryChildren
     ? dm_directoryChildren.map((entity: any) => {
-        console.log(entity, "entity");
+        // console.log(entity, "entity");
         let detlslug;
 
        

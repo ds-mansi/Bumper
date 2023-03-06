@@ -272,6 +272,7 @@ export const transformProps: TransformProps<ExternalApiData> = async (
       : data.document.displayCoordinate.longitude
   }`;
 
+  // geosearch api
   const url = `https://liveapi-sandbox.yext.com/v2/accounts/me/entities/geosearch?radius=2500&location=${data.document.yextDisplayCoordinate.latitude},${data.document.yextDisplayCoordinate.longitude}&api_key=7636b8bb589ab6337d4fc231953b4006&v=20181201&resolvePlaceholders=true&entityTypes=location&limit=4`;
   // console.log(url);
   const externalApiData = (await fetch(url).then((res: any) =>
@@ -317,7 +318,7 @@ const Location: Template<ExternalApiRenderData> = ({
   // services section map start 
 
   const services = c_service?.map((link: any) => {
-    console.log("objectsaeffsfsf", link);
+    // console.log("objectsaeffsfsf", link);
     return (
       <>
         <ul style={{ paddingLeft: "9%", color: "white", paddingBottom: "5%" }}>
@@ -514,7 +515,7 @@ const Location: Template<ExternalApiRenderData> = ({
             limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
             
           />
-           
+           {/* banner section starts */}
           <div style={{ display: "flex" }}>
             <div style={{ width: "60%" }}>
               <h1
@@ -551,12 +552,16 @@ const Location: Template<ExternalApiRenderData> = ({
               </a>
             </div>
           </div>
+           {/* banner section end */}
+           {/* breadcrumb */}
           <BreadCrumbs
             name={name}
             parents={dm_directoryParents}
             baseUrl={relativePrefixToRoot}
             address={address}
           ></BreadCrumbs>
+          
+          {/* map */}
           <div className="location-information">
             {hours ? (
               <div className="map-sec" id="map_canvas">
@@ -579,6 +584,8 @@ const Location: Template<ExternalApiRenderData> = ({
                 />
               </div>
             )}
+
+            {/* contact  */}
             <Contact
               address={address}
               phone={mainPhone}
@@ -599,6 +606,9 @@ const Location: Template<ExternalApiRenderData> = ({
               additionalHoursText={additionalHoursText}
             ></Contact>
           </div>
+          {/* contact end */}
+
+          {/* services section starts */}
           <div style={{ backgroundColor: "#e11f1c" }}>
             <h3
               style={{
@@ -618,7 +628,7 @@ const Location: Template<ExternalApiRenderData> = ({
             </div>
           </div>
 
-          
+          {/* nearby location */}
           <div className="nearby-sec">
             <div className="container">
               <div className="sec-title">
@@ -636,6 +646,8 @@ const Location: Template<ExternalApiRenderData> = ({
             </div>
           </div>
         </AnalyticsScopeProvider>
+
+        {/* footer */}
         <Footer
           _site={_site?.c_lowerFooter}
           ufooter={_site?.c_upperFooter?.upperFooterLabel}
