@@ -254,9 +254,9 @@ const Locator: Template<TemplateRenderProps> = ({ document, __meta }) => {
                   paddingBottom:"50px"
                 }}
               >
-                {_site.c_banner2.banner2Heading}
+                {_site?.c_banner2?.banner2Heading}
               </h1>
-              <p>{_site.c_banner2.banner2Desc}</p>
+              <p>{_site?.c_banner2?.banner2Desc}</p>
             </div>
             <div>{<img src={_site?.c_banner2?.banner2Image?.url} />}</div>
           </div>

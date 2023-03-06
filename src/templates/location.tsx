@@ -323,7 +323,7 @@ const Location: Template<ExternalApiRenderData> = ({
       <>
         <ul style={{ paddingLeft: "9%", color: "white", paddingBottom: "5%" }}>
           <li>
-            <a href={link.services.link}>{link.services.label}</a>
+            <a href={link?.services?.link}>{link?.services?.label}</a>
           </li>
         </ul>
       </>
@@ -334,7 +334,7 @@ const Location: Template<ExternalApiRenderData> = ({
     return (
       <>
         <ul style={{ paddingLeft: "16%", paddingBottom: "20px" }}>
-          <img src={res.servicesIcon.url} style={{ height: "50px" }} />
+          <img src={res?.servicesIcon?.url} style={{ height: "50px" }} />
         </ul>
       </>
     );
@@ -542,13 +542,13 @@ const Location: Template<ExternalApiRenderData> = ({
                     marginTop: "50px",
                   }}
                 >
-                  <a href={c_banner.link}>{c_banner?.bannerCTA.label}</a>
+                  <a href={c_banner?.link}>{c_banner?.bannerCTA?.label}</a>
                 </button>
               </div>
             </div>
             <div style={{ height: "383px", width: "560px" }}>
               <a>
-                <img src={c_banner.bannerImage.url} />
+                <img src={c_banner?.bannerImage?.url} />
               </a>
             </div>
           </div>
@@ -585,7 +585,7 @@ const Location: Template<ExternalApiRenderData> = ({
               </div>
             )}
 
-            {/* contact  */}
+            {/* contact start */}
             <Contact
               address={address}
               phone={mainPhone}
