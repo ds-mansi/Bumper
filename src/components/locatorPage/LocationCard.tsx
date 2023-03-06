@@ -26,7 +26,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
     } else {
       setTimeStatus("");
     }
-  }
+  };
 
   let url = "";
   const [hoursopen, setHoursopen] = React.useState(false);
@@ -60,7 +60,9 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
     .replaceAll(" ", "-");
   var initialregion: any = region.toString();
   var finalregion: any = initialregion.replaceAll(" ", "-");
-  var city: any = result.rawData.address.city?.toLowerCase()?.replaceAll(" ", "-");;
+  var city: any = result.rawData.address.city
+    ?.toLowerCase()
+    ?.replaceAll(" ", "-");
   var initialrcity: any = city.toString();
   var finalcity: any = initialrcity.replaceAll(" ", "-");
   var string: any = name.toString();
@@ -141,8 +143,11 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                 <>
                   <div className="open-close ">
                     <div className="flex mt-2">
-                  <img src={timesvg} style={{height:"25px",width:"25px",margin:"5px"}}/>
-                    <h5 className="flex">Open Hours</h5>
+                      <img
+                        src={timesvg}
+                        style={{ height: "25px", width: "25px", margin: "5px" }}
+                      />
+                      <h5 className="flex">Open Hours</h5>
                     </div>
                     <div className="hours-sec onhighLight">
                       <div className="OpenCloseStatus ">
@@ -198,7 +203,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
                       cx="4"
                       cy="4"
                       r="4"
-                      fill="#ad1e1f"
+                      fill="#fff"
                     />
                   </svg>
                   <div className="hours-info text-lg font-second-main-font closeddot">
