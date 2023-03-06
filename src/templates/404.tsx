@@ -12,19 +12,16 @@ import { favicon } from "../../sites-global/global";
 import { StaticData } from "../../sites-global/staticData";
 import Footer from "../components/layouts/footer";
 import Header from "../components/layouts/header";
-import PageLayout from "../components/layouts/PageLayout";
+import "../index.css"; 
 export const config: TemplateConfig = {
   stream: {
     $id: "404",
     // Specifies the exact data that each generated document will contain. This data is passed in
     // directly as props to the default exported function.
-    fields: [
-      "name",
-      
-    ],
+    fields: ["name"],
     // Defines the scope of entities that qualify for this stream.
     filter: {
-      entityIds: ["global-data"]
+      entityIds: ["global-data"],
     },
     // The entity language profiles that documents will be generated for.
     localization: {
@@ -51,59 +48,57 @@ export const getHeadConfig: GetHeadConfig<TemplateRenderProps> = () => {
           href: favicon,
         },
       },
-    ]
+    ],
   };
 };
 
 // Template that will show as the page
-const FourOhFour: Template<TemplateRenderProps> = ({
-  document,
-}) => {
-  const {
-    _site
-  } = document;
+const FourOhFour: Template<TemplateRenderProps> = ({ document }) => {
+  const { _site } = document;
   return (
     <>
-       <Header
-            _site={_site}
-            labels={_site.c_upperHeader.upperHeaderNav}
-            store={_site?.c_upperHeader}
-            lhead={_site?.c_lowerHeader?.lowerHeaderNav}
-            licon={_site?.c_lowerHeader}
-            limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
-            
-          />
-        <div className="content-list">
-          <div className="container">
-            <div className="sec-title text-center">
-              <h1 className="" style={{ textAlign: "center" }}>
-                {StaticData.PagenotFound}
-              </h1>
-              <p>{StaticData.cantfind_page}.</p>
-              <p>{StaticData.Youcouldtry}</p>
-              <div className="button-bx max-w-[45rem] !mx-auto !mt-5">
-                <a className="btn" href="javascript:history.back()">{StaticData.Previuspage} &gt;</a>
-                <a className="btn" href="/">{StaticData.homePage} &gt;</a>
-              </div>
+      <Header
+        _site={_site}
+        labels={_site.c_upperHeader.upperHeaderNav}
+        store={_site?.c_upperHeader}
+        lhead={_site?.c_lowerHeader?.lowerHeaderNav}
+        licon={_site?.c_lowerHeader}
+        limg={_site?.c_lowerHeader?.lowerHeaderShopIcon}
+      />
+      <div className="content-list">
+        <div className="container">
+          <div className="sec-title text-center">
+            <h1 className="" style={{ textAlign: "center" }}>
+              {StaticData.PagenotFound}
+            </h1>
+            <p style={{ textAlign: "center" }}>{StaticData.cantfind_page}.</p>
+            <p style={{ textAlign: "center" }}>{StaticData.Youcouldtry}</p>
+            <div
+              className="button-bx max-w-[45rem] !mx-auto !mt-5"
+              style={{ textAlign: "center" }}
+            >
+              {/* <a className="btn" href="javascript:history.back()">{StaticData.Previuspage} &gt;</a> */}
+              <a className="btn" href="/">
+                {StaticData.homePage} &gt;
+              </a>
             </div>
-
-
           </div>
         </div>
-        <Footer
-          _site={_site?.c_lowerFooter}
-          ufooter={_site?.c_upperFooter?.upperFooterLabel}
-          upfooter={_site?.c_upperFooter}
-          subscribe={_site?.c_upperFooter?.subscribeCta}
-          copy={_site?.c_lowerFooter}
-          tandc={_site?.c_lowerFooter?.tAndC}
-          aboutimg={_site?.c_about?.aboutImage}
-          abouthead={_site?.c_about}
-          aboutcta={_site?.c_about?.aboutCTA}
-          about2img={_site?.c_about2?.about2Image}
-          abouthead2={_site?.c_about2}
-          about2cta={_site?.c_about2?.about2CTA}
-          />
+      </div>
+      <Footer
+        _site={_site?.c_lowerFooter}
+        ufooter={_site?.c_upperFooter?.upperFooterLabel}
+        upfooter={_site?.c_upperFooter}
+        subscribe={_site?.c_upperFooter?.subscribeCta}
+        copy={_site?.c_lowerFooter}
+        tandc={_site?.c_lowerFooter?.tAndC}
+        aboutimg={_site?.c_about?.aboutImage}
+        abouthead={_site?.c_about}
+        aboutcta={_site?.c_about?.aboutCTA}
+        about2img={_site?.c_about2?.about2Image}
+        abouthead2={_site?.c_about2}
+        about2cta={_site?.c_about2?.about2CTA}
+      />
     </>
   );
 };
