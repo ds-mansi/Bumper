@@ -830,6 +830,9 @@ nav[aria-label="Pagination"] button:disabled {
 .address-main-sec .button-bx .btn {
   @apply min-w-[10.25rem] w-40 py-3 uppercase font-second-main-font !border-none hover:!bg-hover-btn leading-5  md:w-auto;
 }
+.address-main-sec .button-bx .btn:hover{
+  background-color: #e41f1f !important;
+}
 .availability-col {
   @apply mt-4  mb-0 pl-0    !flex-row flex-wrap;
 }

@@ -77,6 +77,7 @@ const Header = (props: any) => {
   return (
     <>
       <div id="header" className="header-nav">
+        {/* logo */}
         <div className="headerLogo" style={{ display: "flex" }}>
           <a className="logo" href="/">
             <div
@@ -98,6 +99,7 @@ const Header = (props: any) => {
               />
             </div>
           </a>
+          {/* upper header nav */}
           <div>
             <nav
               style={{
@@ -112,7 +114,7 @@ const Header = (props: any) => {
             >
               <ul style={{ float: "right" }}>{linkDoms}</ul>
             </nav>
-
+            {/* lower header nav */}
             <div>
               <div
                 style={{
@@ -127,7 +129,7 @@ const Header = (props: any) => {
               </div>
             </div>
           </div>
-          <div style={{ display: "inline-block" }}>
+          <div style={{ display: "inline-block",borderBottom:"1px solid #202124" }}>
             <div
               style={{
                 width: "224px",
@@ -135,6 +137,7 @@ const Header = (props: any) => {
                 backgroundColor: "red",
               }}
             >
+              {/* upper nav find a  Store button  */}
               <button
                 style={{
                   backgroundColor: "red",
@@ -149,10 +152,15 @@ const Header = (props: any) => {
                   {props.store.upperCtaStore.label}
                 </a>
               </button>
+              {/* lower header button Find a shop button */}
               <button>
                 <div style={{ display: "flex" }}>
                   <div style={{ padding: "19px" }}>
-                    <label><a href={props.licon.lowerHeaderShop.link}>{props.licon.lowerHeaderShop.label}</a></label>
+                    <label>
+                      <a href={props.licon.lowerHeaderShop.link}>
+                        {props.licon.lowerHeaderShop.label}
+                      </a>
+                    </label>
                   </div>
                   <div
                     style={{
@@ -175,8 +183,9 @@ const Header = (props: any) => {
               padding: "35px",
             }}
           >
-            <button href={props._site.c_login.link}>
-              {props._site.c_login.label}
+            {/* login button header */}
+            <button>
+              <a href={props._site.c_login.link}>{props._site.c_login.label}</a>
             </button>
           </div>
         </div>
