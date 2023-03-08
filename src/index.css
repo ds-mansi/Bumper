@@ -426,6 +426,8 @@ table.day-hrs {
 }
 table.day-hrs td {
   @apply text-right;
+  padding-right:45px;
+  padding-left: 15px;
 }
 .storelocation-openCloseTime table.day-hrs {
   @apply bg-white xl:max-w-md 2xl:max-w-lg border   mx-auto xl:right-3.5 relative;
@@ -1200,7 +1202,7 @@ nav[aria-label="Pagination"] button:disabled {
 
 .locator-main .result.active {
   @apply border-l-4 border-l-hover-border;
-  /* background-color: #f8d3d2; */
+  background-color: #f8d3d2;
 
 }
 .locator-main .result.fixed-hover.active {
@@ -1210,7 +1212,7 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .locator-main .result.fixed-hover {
   @apply border-l-4 border-l-red;
-
+  background-color: #f8d3d2;
 }
 .footer-block {
   @apply border-b border-border-light py-3 lg:py-0 lg:border-none px-5;

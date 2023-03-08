@@ -141,7 +141,7 @@ const Contact = (props: any) => {
       </div> */}
               {hours && (
                 <Hours
-                  title={"Store Opening Hours"}
+                  // title={"Store Opening Hours"}
                   additionalHoursText={additionalHoursText}
                   hours={hours}
                   c_specific_day={c_specific_day}

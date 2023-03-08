@@ -57,6 +57,7 @@ import FeaturesBrand from "../components/locationDetail/FeaturesBrand";
 import { Fade, Slide } from "react-awesome-reveal";
 import MgmTimber from "../components/locationDetail/MgmTimber";
 import { AnswerExperienceConfig } from "../config/answersHeadlessConfig";
+import Faqs from "../components/locationDetail/Faqs";
 
 /**
  * Required when Knowledge Graph data is used for a template.
@@ -83,6 +84,9 @@ export const config: TemplateConfig = {
       "alternatePhone",
       "c_service",
       "c_banner",
+      "c_faqSection.question",
+      "c_faqSection.answer",
+      "c_fAQPhoto",
       "c_message",
       "dm_directoryParents.name",
       "dm_directoryParents.slug",
@@ -307,6 +311,8 @@ const Location: Template<ExternalApiRenderData> = ({
     yextDisplayCoordinate,
     displayCoordinate,
     dm_directoryParents,
+    c_faqSection,
+    c_fAQPhoto,
     cityCoordinate,
     c_service,
     emails,
@@ -529,9 +535,7 @@ const Location: Template<ExternalApiRenderData> = ({
               </h1>
               <br />
               <div>
-                <button
-                  className="bannerCta"
-                >
+                <button className="bannerCta">
                   <a href={c_banner?.bannerCTA?.link}>
                     {c_banner?.bannerCTA?.label}
                   </a>
@@ -619,6 +623,31 @@ const Location: Template<ExternalApiRenderData> = ({
               {services}
             </div>
           </div>
+
+          {/* FAQ Section Start */}
+          <div style={{ margin: "auto" }}>
+            <h2
+              style={{
+                fontSize: "50px",
+                margin: "30px",
+                textAlign: "center",
+                color: "#00000",
+              }}
+            >
+              FAQS
+            </h2>
+            <br />
+            <div className="flex" style={{marginRight:"50px"}}>
+              <div>
+                <img src={c_fAQPhoto.url} />
+              </div>
+              <div>
+                <Faqs faqs={c_faqSection}/>
+              </div>
+              <br />
+            </div>
+          </div>
+          {/* FAQ Section End*/}
 
           {/* nearby location */}
           <div className="nearby-sec">

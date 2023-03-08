@@ -4,70 +4,58 @@ import gallerybg from "../../images/faq-bg.png"
 import { useState, useEffect } from "react";
 import AccordionItem from "./AccordianItem";
 import { StaticData } from "../../../sites-global/staticData";
-
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionBody,
+} from "@material-tailwind/react";
 
 export default function Faq(props: any) {
-  const [current, setCurrent] = useState("");
-  const [isShow, setIsShow] = useState(false);
-  const [faqId, setFaqId] = useState(null);
-  const [faqClass, setFaqClass] = useState("");
-  const [activeIndex, setActiveIndex] = useState(0);
-  let preExpandedarr = [];
-
-  if (props.faqs.length > 0) {
-    props.faqs.map((e: any, i: Number) => {
-      if (i == 0) {
-        preExpandedarr = [e];
-      }
-    });
-  }
-  const isShowContent = (e: any) => {
-    setFaqId(e.currentTarget.id);
-
-    if (isShow) {
-      setIsShow(false);
-      setFaqClass("");
-    } else {
-      setIsShow(true);
-      setFaqClass("opened");
-    }
+  console.log(props,"faq")
+  const [open, setOpen] = React.useState(0);
+  const handleOpen = (value: any) => {
+    setOpen(open === value ? 0 : value);
   };
-  function setclass(e: any) {
-    setCurrent(e.target.id);
-  }
-  const renderedQuestionsAnswers = props.faqs.map((item: any, index: Number) => {
-    const showDescription = index === activeIndex ? "current" : "hidden";
-    const background = index === activeIndex ? "active" : "";
-    const fontWeightBold = index === activeIndex ? " font-weight-bold  py-0 mt-2" : "";
-    const ariaExpanded = index === activeIndex ? "true" : "false";
-    return (
-      <AccordionItem
-        showDescription={showDescription}
-        fontWeightBold={fontWeightBold}
-        ariaExpanded={ariaExpanded}
-        background={background}
-        item={item}
-        index={index}
-        onClick={() => {
-          setActiveIndex(index);
-        }}
-      />
-    );
-  });
 
-  return (
+ 
+ 
+ return (
     <>
-      <div className=" faq-main-sec">
-
-        <div className=" faq-card ">
-          <div className="faq-sec-inner">
-            <h2 className="">{props.c_fAQsHeading?props.c_fAQsHeading:StaticData.FAQheading}</h2>
-            <div className="faq-tabs">{renderedQuestionsAnswers}</div>
-          </div>
-        </div>
-
-
-      </div>
+      {props?.faqs && props?.faqs?.map((res:any,index:any)=>{
+        return(
+          <>
+            <div>
+            <Accordion
+                  open={open === index + 1}
+                  style={{
+                    width:"50%",
+                    backgroundColor: "#ffcfcf",
+                    border:"1px solid red",
+                    fontSize:"10px",
+                    padding: "20px 20px 3px 20px",
+                   
+                    
+                  }}
+                >
+                  <AccordionHeader onClick={() => handleOpen(index + 1)}>
+                    <h4>{res.question}</h4>
+                  </AccordionHeader>
+                  <AccordionBody
+                    style={{
+                      backgroundColor: "#eb0000",
+                       fontSize:"20px",
+                      color:"white",
+                     padding:"10px",
+                      // width:"100%"
+                    }}
+                  >
+                    {res?.answer}
+                  </AccordionBody>
+                </Accordion>
+            </div>
+          </>
+        )
+      })}
     </>
   );
 }

@@ -151,7 +151,7 @@ export enum PaymentOptions {
 	KITACA = "Kitaca",
 	KLA = "Klantenkaart",
 	KLARNA = "Klarna",
-	LINEPAY = "LINE Pay",
+	LINEPAY = "Pay",
 	MAESTRO = "Maestro",
 	MANACA = "Manaca",
 	MASTERCARD = "MasterCard",

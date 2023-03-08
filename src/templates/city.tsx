@@ -320,7 +320,7 @@ const City: Template<TemplateRenderProps> = ({
       url = `/${link}.html`;
     } else {
       url = `/${link}`;
-      console.log(url,"urlvasdvg")
+      // console.log(url,"urlvasdvg")
     }
 
     return (
