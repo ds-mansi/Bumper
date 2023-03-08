@@ -30,6 +30,7 @@ export default function Faq(props: any) {
                   style={{
                   
                     backgroundColor: "#ffcfcf",
+                    borderRadius:"10px",
                     border:"1px solid red",
                     fontSize:"10px",
                     padding: "20px 20px 3px 20px",
