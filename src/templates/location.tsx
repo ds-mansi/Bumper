@@ -637,8 +637,8 @@ const Location: Template<ExternalApiRenderData> = ({
               FAQS
             </h2>
             <br />
-            <div className="flex" style={{marginRight:"50px"}}>
-              <div>
+            <div className="flex">
+              <div  style={{width:"100%"}}>
                 <img src={c_fAQPhoto.url} />
               </div>
               <div>

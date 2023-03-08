@@ -28,7 +28,7 @@ export default function Faq(props: any) {
             <Accordion
                   open={open === index + 1}
                   style={{
-                    width:"50%",
+                  
                     backgroundColor: "#ffcfcf",
                     border:"1px solid red",
                     fontSize:"10px",
@@ -43,7 +43,7 @@ export default function Faq(props: any) {
                   <AccordionBody
                     style={{
                       backgroundColor: "#eb0000",
-                       fontSize:"20px",
+                       fontSize:"16px",
                       color:"white",
                      padding:"10px",
                       // width:"100%"
