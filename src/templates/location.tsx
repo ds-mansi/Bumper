@@ -82,7 +82,6 @@ export const config: TemplateConfig = {
       "displayCoordinate",
       "cityCoordinate",
       "alternatePhone",
-      "c_careers",
       "c_service",
       "c_banner",
       "c_faqSection.question",
@@ -309,7 +308,6 @@ const Location: Template<ExternalApiRenderData> = ({
     description,
     additionalHoursText,
     timezone,
-    c_careers,
     yextDisplayCoordinate,
     displayCoordinate,
     dm_directoryParents,
@@ -345,15 +343,7 @@ const Location: Template<ExternalApiRenderData> = ({
       </>
     );
   });
-  // careers section
-  // const careersimg= c_careers?.careerImg?.map((mes:any)=>{
-  //   return(
-  //     <>
-  //       <img src={mes.url}/>
-  //     </>
-  //   )
-  // })
-  // console.log(c_careers.careerImg,"careers")
+
 
   let templateData = { document: document, __meta: __meta };
   let hoursSchema = [];
