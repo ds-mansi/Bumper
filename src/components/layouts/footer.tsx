@@ -13,7 +13,7 @@ type props = {
   about2img: any;
   about2cta: any;
 };
-// props call 
+// props call
 const Footer = (props: any) => {
   //   console.log(props.links);
   //   console.log("copyright",props.copy.copyright)
@@ -23,7 +23,7 @@ const Footer = (props: any) => {
   const toggle = () => {
     (document.getElementById("body") as HTMLInputElement).classList.toggle("");
   };
-// map for upperfooter nav
+  // map for upperfooter nav
   const ufooter = props?.ufooter?.map((link: any) => {
     return (
       <>
@@ -35,7 +35,7 @@ const Footer = (props: any) => {
       </>
     );
   });
-// subscribe button in upperfooter
+  // subscribe button in upperfooter
   const upfooter = props?.upfooter?.subscribeLabel;
 
   // terms and condition call in lowerfooter
@@ -54,7 +54,6 @@ const Footer = (props: any) => {
 
   return (
     <>
-     
       {/* lower footer call */}
       <footer className="upperfooter">
         {/* upper footer nav */}
@@ -64,7 +63,7 @@ const Footer = (props: any) => {
           <div style={{ paddingRight: "90px" }}>{upfooter}</div>
           {/* upper footer subscribe button */}
           <div>
-            <button 
+            <button
               style={{
                 border: "1px solid black",
                 padding: "5px 50px 5px 20px",

@@ -1203,12 +1203,10 @@ nav[aria-label="Pagination"] button:disabled {
 .locator-main .result.active {
   @apply border-l-4 border-l-hover-border;
   background-color: #f8d3d2;
-
 }
 .locator-main .result.fixed-hover.active {
   @apply border-l-4 border-l-red;
-  background-color: #f8d3d2;
-
+  
 }
 .locator-main .result.fixed-hover {
   @apply border-l-4 border-l-red;

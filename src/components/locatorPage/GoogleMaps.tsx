@@ -355,14 +355,18 @@ function UnwrappedGoogleMaps({
 
   if (infoWindow.current != null) {
     infoWindow.current.addListener("closeclick", () => {
-      setHover(true);
+     setHover(true);
       info = false;
       infoWindow.current.close();
-      locationResults.map((result, index) => {
+      
+      locationResults.map((result :any, index:any) => {
+        console.log(result.name,"Index");
         const resultelement = document.querySelectorAll(
-          `.result-list-inner-${index + 1}`
+          `.result-list-inner-${result.name}`
         );
+        
         for (let index = 0; index < resultelement.length; index++) {
+          
           resultelement[index].classList.remove("active", "fixed-hover");
         }
       });
@@ -396,7 +400,9 @@ function UnwrappedGoogleMaps({
     marker_hover_icon: any,
     marker_icon: any
   ) {
+    
     const elements = document.querySelectorAll(".result");
+    
     for (let index = 0; index < elements.length; index++) {
       elements[index].addEventListener("mouseover", (e) => {
         if (hover) {
@@ -416,6 +422,13 @@ function UnwrappedGoogleMaps({
 
           removeActiveGrid(index);
         }
+      });
+      elements[index].addEventListener("click", () => {
+        // alert("This");
+
+        // console.log(index,"Pins");
+        // infoWindow.current.open(map,markerPins.current[index]);
+        infoWindow.current.open(map,markerPins.current[index]);
       });
     }
   }

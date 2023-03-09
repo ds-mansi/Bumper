@@ -83,13 +83,7 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
   } else {
     url = `/${link}`;
   }
-  //  console.log("url",url)
-  // const services = c_restroServices.services.map((link:any) => (
 
-  //   <ul>
-  //     <li>{link.label}</li></ul>
-
-  // ));
 
   return (
     <div
@@ -137,8 +131,10 @@ const LocationCard: CardComponent<Location> = ({ result }) => {
               <Address address={address} />
               <div className="flex mt-2">
                 <img src={phone} style={{ height: "30px" }} />
-                
-                <a  href={"tel:" + mainPhone} style={{ fontSize: "18px" }} >{mainPhone}</a>
+
+                <a href={"tel:" + mainPhone} style={{ fontSize: "18px" }}>
+                  {mainPhone}
+                </a>
               </div>
               {result.rawData.hours ? (
                 <>

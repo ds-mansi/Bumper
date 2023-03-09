@@ -1,0 +1,9 @@
+This is a beta version of the Yext Command Line Interface
+
+Please upgrade the Yext CLI. Current version: 0.1_310. Top version: 0.1_317.
+
+In order to upgrade, please download the latest version from https://hitchhikers.yext.com/docs/cli/installation/
+
+
+[1;31mERROR: [0munknown command "line" for "yext pages generate-test-data"
+You may ask for help in the community at https://hitchhikers.yext.com/community
