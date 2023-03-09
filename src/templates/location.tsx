@@ -82,6 +82,7 @@ export const config: TemplateConfig = {
       "displayCoordinate",
       "cityCoordinate",
       "alternatePhone",
+      "c_careers",
       "c_service",
       "c_banner",
       "c_faqSection.question",
@@ -308,6 +309,7 @@ const Location: Template<ExternalApiRenderData> = ({
     description,
     additionalHoursText,
     timezone,
+    c_careers,
     yextDisplayCoordinate,
     displayCoordinate,
     dm_directoryParents,
@@ -343,6 +345,15 @@ const Location: Template<ExternalApiRenderData> = ({
       </>
     );
   });
+  // careers section
+  // const careersimg= c_careers?.careerImg?.map((mes:any)=>{
+  //   return(
+  //     <>
+  //       <img src={mes.url}/>
+  //     </>
+  //   )
+  // })
+  // console.log(c_careers.careerImg,"careers")
 
   let templateData = { document: document, __meta: __meta };
   let hoursSchema = [];
@@ -604,6 +615,17 @@ const Location: Template<ExternalApiRenderData> = ({
           </div>
           {/* contact end */}
 
+          {/* about section start */}
+          <PageLayout
+            aboutimg={_site?.c_about?.aboutImage}
+            abouthead={_site?.c_about}
+            aboutcta={_site?.c_about?.aboutCTA}
+            about2img={_site?.c_about2?.about2Image}
+            abouthead2={_site?.c_about2}
+            about2cta={_site?.c_about2?.about2CTA}
+            global={undefined}
+          />
+          {/* about section end */}
           {/* services section starts */}
           <div style={{ backgroundColor: "#e11f1c" }}>
             <h3
@@ -638,11 +660,11 @@ const Location: Template<ExternalApiRenderData> = ({
             </h2>
             <br />
             <div className="flex">
-              <div  style={{width:"100%"}}>
+              <div style={{ width: "100%" }}>
                 <img src={c_fAQPhoto.url} />
               </div>
               <div>
-                <Faqs faqs={c_faqSection}/>
+                <Faqs faqs={c_faqSection} />
               </div>
               <br />
             </div>
@@ -675,12 +697,6 @@ const Location: Template<ExternalApiRenderData> = ({
           subscribe={_site?.c_upperFooter?.subscribeCta}
           copy={_site?.c_lowerFooter}
           tandc={_site?.c_lowerFooter?.tAndC}
-          aboutimg={_site?.c_about?.aboutImage}
-          abouthead={_site?.c_about}
-          aboutcta={_site?.c_about?.aboutCTA}
-          about2img={_site?.c_about2?.about2Image}
-          abouthead2={_site?.c_about2}
-          about2cta={_site?.c_about2?.about2CTA}
         />
       </AnalyticsProvider>
     </>

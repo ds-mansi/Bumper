@@ -274,20 +274,14 @@ const Locator: Template<TemplateRenderProps> = ({ document, __meta }) => {
           </SearchHeadlessProvider>
 
             {/* footer section */}
-          <Footer
-            _site={_site?.c_lowerFooter}
-            ufooter={_site?.c_upperFooter?.upperFooterLabel}
-            upfooter={_site?.c_upperFooter}
-            subscribe={_site?.c_upperFooter?.subscribeCta}
-            copy={_site?.c_lowerFooter}
-            tandc={_site?.c_lowerFooter?.tAndC}
-            aboutimg={_site?.c_about?.aboutImage}
-            abouthead={_site?.c_about}
-            aboutcta={_site?.c_about?.aboutCTA}
-            about2img={_site?.c_about2?.about2Image}
-            abouthead2={_site?.c_about2}
-            about2cta={_site?.c_about2?.about2CTA}
-          />
+            <Footer
+          _site={_site?.c_lowerFooter}
+          ufooter={_site?.c_upperFooter?.upperFooterLabel}
+          upfooter={_site?.c_upperFooter}
+          subscribe={_site?.c_upperFooter?.subscribeCta}
+          copy={_site?.c_lowerFooter}
+          tandc={_site?.c_lowerFooter?.tAndC}
+        />
         </AnalyticsScopeProvider>
       </AnalyticsProvider>
     </>
