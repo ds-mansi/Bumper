@@ -423,13 +423,13 @@ function UnwrappedGoogleMaps({
           removeActiveGrid(index);
         }
       });
-      elements[index].addEventListener("click", () => {
-        // alert("This");
+      // elements[index].addEventListener("click", () => {
+      //   // alert("This");
 
-        // console.log(index,"Pins");
-        // infoWindow.current.open(map,markerPins.current[index]);
-        infoWindow.current.open(map,markerPins.current[index]);
-      });
+      //   // console.log(index,"Pins");
+      //   // infoWindow.current.open(map,markerPins.current[index]);
+      //   infoWindow.current.open(map,markerPins.current[index]);
+      // });
     }
   }
   function gridclick(
