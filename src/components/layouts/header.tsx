@@ -51,7 +51,7 @@ const Header = (props: any) => {
     return (
       <>
         <a href="#">
-          <img src={low.url} style={{ height: "20px" }} />
+          <img src={low.url} style={{ height: "20px" }} alt=""/>
         </a>
       </>
     );
@@ -73,6 +73,7 @@ const Header = (props: any) => {
             >
               <img
                 src={props._site.c_bumperLogo.url}
+                alt=""
                 style={{
                   backgroundColor: "red",
                   height: "70px",
@@ -95,7 +96,7 @@ const Header = (props: any) => {
                 width: "784px",
               }}
             >
-              <ul style={{ float: "right" }}>{linkDoms}</ul>
+              <p style={{ float: "right" }}>{linkDoms}</p>
             </nav>
             {/* lower header nav */}
             <div>
@@ -121,6 +122,7 @@ const Header = (props: any) => {
               }}
             >
               {/* upper nav find a  Store button  */}
+              <a href={props.store.upperCtaStore.link}>
               <button
                 style={{
                   backgroundColor: "red",
@@ -131,10 +133,10 @@ const Header = (props: any) => {
                   float: "right",
                 }}
               >
-                <a href={props.store.upperCtaStore.link}>
                   {props.store.upperCtaStore.label}
-                </a>
+               
               </button>
+              </a>
               {/* lower header button Find a shop button */}
               <button>
                 <div style={{ display: "flex" }}>

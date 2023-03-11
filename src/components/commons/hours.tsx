@@ -83,7 +83,6 @@ function sortByDay(week: Week): Week {
   return orderedWeek;
 }
 
-
 const renderHours = (week: Week) => {
   const dayDom: JSX.Element[] = [];
   var i = 0;
@@ -94,41 +93,45 @@ const renderHours = (week: Week) => {
 
     function join(t: any, a: any, s: any) {
       function format(m: any) {
-        let f = new Intl.DateTimeFormat('en', m);
+        let f = new Intl.DateTimeFormat("en", m);
         return f.format(t);
       }
       return a?.map(format).join(s);
     }
     function formatDate(date: any) {
       var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
+        month = "" + (d.getMonth() + 1),
+        day = "" + d.getDate(),
         year = d.getFullYear();
 
-      if (month.length < 2)
-        month = '0' + month;
-      if (day.length < 2)
-        day = '0' + day;
+      if (month.length < 2) month = "0" + month;
+      if (day.length < 2) day = "0" + day;
 
-      return [year, month, day].join('-');
+      return [year, month, day].join("-");
     }
     if (i > 0) {
       dayDate = new Date(Date.now() + i * 24 * 60 * 60 * 1000);
-
     }
-    a = [{ day: 'numeric' }, { month: 'long' }, { year: 'numeric' }];
-    s = join(dayDate, a, ' ');
+    a = [{ day: "numeric" }, { month: "long" }, { year: "numeric" }];
+    s = join(dayDate, a, " ");
     dayDate = s;
 
-    week.holidayHours?.map((res:any)=>{
-      if(res.date==formatDate(dayDate)){
+    week.holidayHours?.map((res: any) => {
+      if (res.date == formatDate(dayDate)) {
       }
-    })
-    dayDom.push(<DayRow key={k} dayDate={dayDate} dayName={k} day={v} isToday={isDayToday(k)} holidayhours={week.holidayHours} />);
+    });
+    dayDom.push(
+      <DayRow
+        key={k}
+        dayDate={dayDate}
+        dayName={k}
+        day={v}
+        isToday={isDayToday(k)}
+        holidayhours={week.holidayHours}
+      />
+    );
     i++;
   }
-
-
 
   return <tbody className="font-normal">{dayDom}</tbody>;
 };
@@ -163,7 +166,7 @@ const DayRow = (props: DayRow) => {
   let a, s, holidayDate: any;
   function join(t: any, a: any, s: any) {
     function format(m: any) {
-      let f = new Intl.DateTimeFormat('en', m);
+      let f = new Intl.DateTimeFormat("en", m);
       return f.format(t);
     }
     return a.map(format).join(s);
@@ -171,78 +174,90 @@ const DayRow = (props: DayRow) => {
 
   const holidayarray: any[] = [];
   const holidayopenintervals: any[] = [];
-  const keysFromData =
-    holidayhours ? holidayhours.map((holiday: any, index: Number) => {
-      a = [{ day: 'numeric' }, { month: 'long' }, { year: 'numeric' }];
-      s = join(new Date(holiday.date), a, ' ');
-      holidayDate = s;
-      holidayarray.push(holiday);
-      return (holidayDate)
-    }) : null;
+  const keysFromData = holidayhours
+    ? holidayhours.map((holiday: any, index: Number) => {
+        a = [{ day: "numeric" }, { month: "long" }, { year: "numeric" }];
+        s = join(new Date(holiday.date), a, " ");
+        holidayDate = s;
+        holidayarray.push(holiday);
+        return holidayDate;
+      })
+    : null;
 
   React.useEffect(() => {
     if (keysFromData) {
-      var keysFromDataUnique = keysFromData.filter((value: any, index: any, self: any) => {
-        return self.indexOf(value) === index;
-      });
+      var keysFromDataUnique = keysFromData.filter(
+        (value: any, index: any, self: any) => {
+          return self.indexOf(value) === index;
+        }
+      );
       var dataAccordintToMe = {};
       for (let index = 0; index < keysFromDataUnique.length; index++) {
-        const element = keysFromDataUnique[index]
+        const element = keysFromDataUnique[index];
         dataAccordintToMe[element] = holidayarray.filter((fe: any) => {
-          let adate = [{ day: 'numeric' }, { month: 'long' }, { year: 'numeric' }];
-          let matchdate = join(new Date(fe.date), adate, ' ');
-          return matchdate == element
-        })
+          let adate = [
+            { day: "numeric" },
+            { month: "long" },
+            { year: "numeric" },
+          ];
+          let matchdate = join(new Date(fe.date), adate, " ");
+          return matchdate == element;
+        });
       }
 
       setMyDataAccordintToMe(dataAccordintToMe);
     }
-  }, [])
-
-
-
+  }, []);
 
   let Status = false;
   for (var key in myDataAccordintToMe) {
     if (key.includes(dayDate)) {
       Status = true;
-      holidayopenintervals.push(myDataAccordintToMe[key])
+      holidayopenintervals.push(myDataAccordintToMe[key]);
     }
   }
   return (
-
     <tr className={isToday ? "bg-[#eb0000] text-[#ffff] pr-1" : ""}>
-      {Status ?
+      {Status ? (
         <td key={"td1"} className="capitalize text-left  pl-1 pr-4">
-          <span >{dayName} (Holiday Hours)</span>
-        </td> : <td key={"td2"} className="capitalize text-left pl-1 pr-4">
-          <span >{dayName}</span>
-        </td>}
-
+          <span>{dayName} (Holiday Hours)</span>
+        </td>
+      ) : (
+        <td key={"td2"} className="capitalize text-left pl-1 pr-4">
+          <span>{dayName}</span>
+        </td>
+      )}
 
       {!day.isClosed && (
         <td key={"td3"} className=" mr-2">
           <span key={"spana"} className="inline">
-            {Status ?
-              holidayopenintervals?.map((res: any) => {
-                return (res?.map((openint: any) => {
-                  return (openint.openIntervals?.map((res: any, index:any) => {
-                    return (
-                      <>
-                        <span key={index} className="mr-2 text-[#000]">{res.start}</span> -<span className="ml-2 text-[#000]">{res.end}</span>
-                      </>
-                    )
-                  }))
-                }))
-              })
+            {Status
+              ? holidayopenintervals?.map((res: any) => {
+                  return res?.map((openint: any) => {
+                    return openint.openIntervals?.map(
+                      (res: any, index: any) => {
+                        return (
+                          <>
+                            <span key={index} className="mr-2 text-[#000]">
+                              {res.start}
+                            </span>{" "}
+                            -<span className="ml-2 text-[#000]">{res.end}</span>
+                          </>
+                        );
+                      }
+                    );
+                  });
+                })
               : day.openIntervals?.map((res: any, index: any) => {
-                return (
-                  <>
-                    <span key={index} className="mr-2">{res.start}</span> -<span className="ml-2 ">{res.end}</span>
-                  </>
-                )
-
-              })}
+                  return (
+                    <>
+                      <span key={index} className="mr-2">
+                        {res.start}
+                      </span>{" "}
+                      -<span className="ml-2 ">{res.end}</span>
+                    </>
+                  );
+                })}
           </span>
         </td>
       )}
@@ -255,7 +270,6 @@ const DayRow = (props: DayRow) => {
   );
 };
 
-
 const Hours = (props: Hours) => {
   let a;
   let s;
@@ -263,15 +277,15 @@ const Hours = (props: Hours) => {
   const { title, hours, additionalHoursText } = props;
   function join(t: any, a: any, s: any) {
     function format(m: any) {
-      let f = new Intl.DateTimeFormat('en', m);
+      let f = new Intl.DateTimeFormat("en", m);
       return f.format(t);
     }
     return a.map(format).join(s);
   }
   if (hours.reopenDate) {
-    a = [{ day: 'numeric' }, { month: 'long' }, { year: 'numeric' }];
-    s = join(new Date(hours.reopenDate), a, ' ');
-    dateNewFormat = s
+    a = [{ day: "numeric" }, { month: "long" }, { year: "numeric" }];
+    s = join(new Date(hours.reopenDate), a, " ");
+    dateNewFormat = s;
   }
 
   return (
@@ -286,19 +300,14 @@ const Hours = (props: Hours) => {
         </thead>
 
         {hours && hours.reopenDate ? (
-          <span>{additionalHoursText} <br />
+          <span>
+            {additionalHoursText} <br />
             <span> Reopen {dateNewFormat} </span>
           </span>
         ) : (
-          <>
-            {renderHours(hours)}
-
-          </>
+          <>{renderHours(hours)}</>
         )}
-
       </table>
-
-
     </>
   );
 };
