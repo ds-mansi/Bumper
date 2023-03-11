@@ -18,7 +18,6 @@ const Header = (props: any) => {
   // console.log(props.labels,"labels for header")
   // upper header nav
   const linkDoms = props?.labels?.map((element: any) => {
-
     return (
       <>
         <a
@@ -34,8 +33,7 @@ const Header = (props: any) => {
   // console.log(props.store.upperCtaStore, "data");
   // console.log(props.licon.lowerHeaderIcon, "uadgyhgawvhgagvdhgavg");
 
-
-// lower header nav
+  // lower header nav
   const lhead = props?.lhead?.map((head: any) => {
     // console.log("hbsdjhbswjsjbgsj",head)
     return (
@@ -51,7 +49,7 @@ const Header = (props: any) => {
     return (
       <>
         <a href="#">
-          <img src={low.url} style={{ height: "20px" }} alt=""/>
+          <img src={low.url} style={{ height: "20px" }} alt="" />
         </a>
       </>
     );
@@ -89,8 +87,6 @@ const Header = (props: any) => {
               style={{
                 color: "black",
                 backgroundColor: "red",
-                // padding: "0px 15px",
-                // width: "100%",
                 height: "30px",
                 fontSize: "14px",
                 width: "784px",
@@ -109,11 +105,16 @@ const Header = (props: any) => {
                 }}
               >
                 {lhead}
-                <img src={props?.licon?.lowerHeaderIcon?.url} />
+                {/* <img src={props?.licon?.lowerHeaderIcon?.url} alt=""/> */}
               </div>
             </div>
           </div>
-          <div style={{ display: "inline-block",borderBottom:"1px solid #202124" }}>
+          <div
+            style={{
+              display: "inline-block",
+              borderBottom: "1px solid #202124",
+            }}
+          >
             <div
               style={{
                 width: "224px",
@@ -122,7 +123,7 @@ const Header = (props: any) => {
               }}
             >
               {/* upper nav find a  Store button  */}
-              <a href={props.store.upperCtaStore.link}>
+
               <button
                 style={{
                   backgroundColor: "red",
@@ -133,19 +134,20 @@ const Header = (props: any) => {
                   float: "right",
                 }}
               >
+                <a href={props.store.upperCtaStore.link}>
                   {props.store.upperCtaStore.label}
-               
+                </a>
               </button>
-              </a>
+
               {/* lower header button Find a shop button */}
               <button>
                 <div style={{ display: "flex" }}>
                   <div style={{ padding: "19px" }}>
-                    <label>
+                   
                       <a href={props.licon.lowerHeaderShop.link}>
                         {props.licon.lowerHeaderShop.label}
                       </a>
-                    </label>
+                   
                   </div>
                   <div
                     style={{
