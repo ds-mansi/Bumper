@@ -123,31 +123,28 @@ const Header = (props: any) => {
               }}
             >
               {/* upper nav find a  Store button  */}
+              <a href={props.store.upperCtaStore.link}>
+                <button
+                  style={{
+                    backgroundColor: "red",
 
-              <button
-                style={{
-                  backgroundColor: "red",
-
-                  height: "30px",
-                  paddingRight: "75px",
-                  color: "white",
-                  float: "right",
-                }}
-              >
-                <a href={props.store.upperCtaStore.link}>
+                    height: "30px",
+                    paddingRight: "75px",
+                    color: "white",
+                    float: "right",
+                  }}
+                >
                   {props.store.upperCtaStore.label}
-                </a>
-              </button>
+                </button>
+              </a>
 
               {/* lower header button Find a shop button */}
               <button>
                 <div style={{ display: "flex" }}>
                   <div style={{ padding: "19px" }}>
-                   
-                      <a href={props.licon.lowerHeaderShop.link}>
-                        {props.licon.lowerHeaderShop.label}
-                      </a>
-                   
+                    <a href={props.licon.lowerHeaderShop.link}>
+                      {props.licon.lowerHeaderShop.label}
+                    </a>
                   </div>
                   <div
                     style={{
@@ -171,9 +168,9 @@ const Header = (props: any) => {
             }}
           >
             {/* login button header */}
-            <button>
-              <a href={props._site.c_login.link}>{props._site.c_login.label}</a>
-            </button>
+            <a href={props._site.c_login.link}>
+              <button>{props._site.c_login.label}</button>
+            </a>
           </div>
         </div>
       </div>
