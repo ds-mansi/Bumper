@@ -168,9 +168,9 @@ const Header = (props: any) => {
             }}
           >
             {/* login button header */}
-            <a href={props._site.c_login.link}>
-              <button>{props._site.c_login.label}</button>
-            </a>
+            <button>
+              <a href={props._site.c_login.link}>{props._site.c_login.label}</a>
+            </button>
           </div>
         </div>
       </div>

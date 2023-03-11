@@ -258,7 +258,7 @@ const Locator: Template<TemplateRenderProps> = ({ document, __meta }) => {
               </h1>
               <p>{_site?.c_banner2?.banner2Desc}</p>
             </div>
-            <div>{<img src={_site?.c_banner2?.banner2Image?.url} />}</div>
+            <div>{<img src={_site?.c_banner2?.banner2Image?.url} alt=""/>}</div>
           </div>
          {/* locatpr banner end */}
           <SearchHeadlessProvider
