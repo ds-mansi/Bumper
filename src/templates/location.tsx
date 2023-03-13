@@ -344,7 +344,6 @@ const Location: Template<ExternalApiRenderData> = ({
     );
   });
 
-
   let templateData = { document: document, __meta: __meta };
   let hoursSchema = [];
   let breadcrumbScheme = [];
@@ -677,6 +676,9 @@ const Location: Template<ExternalApiRenderData> = ({
                 )}
               </div>
             </div>
+            <button className="view-more-btn">
+              <a href="/index.html">View More Location</a>
+            </button>
           </div>
         </AnalyticsScopeProvider>
         {/* footer */}

@@ -92,9 +92,9 @@ const Contact = (props: any) => {
                 alt="email"
               />
             </div>
-        <div style={{paddingLeft:"15px"}}>
+        <div className ="email">
           
-            {emails}
+            <a href = "mailto: abc@example.com">{emails}</a>
         </div>
         </div>
         {/* <ul className="">

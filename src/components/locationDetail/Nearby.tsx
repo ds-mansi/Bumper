@@ -108,8 +108,9 @@ export default function Nearby(props: any) {
                     {neabyData?.distances.map((res: any) => {
                       if (res.id == location.meta.id)
                         return (
-                          <div className="distance">
-                            {res.distanceMiles.toFixed(2)}
+                          <div className="distance flex">
+                            {res.distanceMiles.toFixed(2)} 
+                            <p style={{marginLeft:"5px"}}> miles</p>
                           </div>
                         );
                     })}
@@ -150,7 +151,7 @@ export default function Nearby(props: any) {
                   </div>
                 </div>
                 <div className="flex ml-1 mt-2">
-                  <img src={phone} style={{ height: "30px" }} />
+                  <img src={phone} style={{ height: "30px"}} />
                   {/* <div>{mainPhone}</div> */}
                   <Link
                     eventName={"PhoneNumber"}

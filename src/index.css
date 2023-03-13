@@ -425,10 +425,10 @@ table.day-hrs {
   @apply border-none w-full mb-4;
 }
 table.day-hrs td {
-  @apply text-right;
-  padding-right:45px;
-  padding-left: 15px;
+  @apply text-left;
+ 
 }
+
 .storelocation-openCloseTime table.day-hrs {
   @apply bg-white xl:max-w-md 2xl:max-w-lg border   mx-auto xl:right-3.5 relative;
 }
@@ -759,6 +759,24 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .address-main-sec {
   @apply bg-address-bg px-4 md:px-6 py-4 md:py-6 w-full md:w-[48%]  lg:w-[24.8125rem] relative z-[0] md:mr-4 order-2 md:order-none mt-4 md:mt-4 lg:mt-0;
+}
+.email{
+  padding-left: 15px;
+}
+.email:hover{
+  text-decoration: underline;
+}
+.view-more-btn{
+  border: 1px solid black;
+  padding: 10px 100px;
+  background-color: #eb0000;
+  color: white;
+  margin: auto;
+  display: flex;
+}
+.view-more-btn:hover{
+  background-color: #e9a7a5;
+  color: black;
 }
 .address-main-sec .address-text {
   @apply text-lg md:text-lg;

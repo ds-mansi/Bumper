@@ -62,16 +62,16 @@ const Footer = (props: any) => {
           {/* upper footer subscribe label */}
           <div style={{ paddingRight: "90px" }}>{upfooter}</div>
           {/* upper footer subscribe button */}
-          <div> <a href={props.subscribe.link}>
+          <div>
+            {" "}
             <button
               style={{
                 border: "1px solid black",
                 padding: "5px 50px 5px 20px",
               }}
             >
-             {props.subscribe.label}
+              <a href={props.subscribe.link}>{props.subscribe.label}</a>
             </button>
-            </a>
           </div>
         </div>
       </footer>
