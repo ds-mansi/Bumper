@@ -505,6 +505,27 @@ const Location: Template<ExternalApiRenderData> = ({
           itemListElement: breadcrumbScheme,
         }}
       />
+       {c_faqSection && (
+        <>
+          <JsonLd<Faqs>
+            item={{
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+
+              mainEntity: c_faqSection.map((i: any) => {
+                return {
+                  "@type": "Question",
+                  name: i.question ? i.question : "question",
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: `<p>${i.answer ? i.answer : "answer"}</p>`,
+                  },
+                };
+              }),
+            }}
+          />
+        </>
+      )}
 
       <AnalyticsProvider
         templateData={templateData}
