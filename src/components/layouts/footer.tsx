@@ -65,10 +65,7 @@ const Footer = (props: any) => {
           <div>
             {" "}
             <button
-              style={{
-                border: "1px solid black",
-                padding: "5px 50px 5px 20px",
-              }}
+             className="footer-cta"
             >
               <a href={props.subscribe.link}>{props.subscribe.label}</a>
             </button>

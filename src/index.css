@@ -1239,6 +1239,16 @@ nav[aria-label="Pagination"] button:disabled {
   @apply border-l-4 border-l-red;
   background-color: #f8d3d2;
 }
+
+.footer-cta{
+     border: 1px solid black;
+    padding: 5px 50px 5px 20px;
+
+}
+.footer-cta:hover{
+  background-color: #eb0000;
+  color: white;
+}
 .footer-block {
   @apply border-b border-border-light py-3 lg:py-0 lg:border-none px-5;
 }
