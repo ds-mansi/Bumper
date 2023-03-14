@@ -426,7 +426,6 @@ table.day-hrs {
 }
 table.day-hrs td {
   @apply text-left;
- 
 }
 
 .storelocation-openCloseTime table.day-hrs {
@@ -661,7 +660,7 @@ nav[aria-label="Pagination"] button:disabled {
   @apply w-full md:w-[48%] ml-2 bg-white justify-start  border-none text-white;
   text-transform: uppercase;
 }
-.nearby-card .button-bx .btn>a:hover{
+.nearby-card .button-bx .btn > a:hover {
   background-color: black !important;
 }
 
@@ -760,13 +759,13 @@ nav[aria-label="Pagination"] button:disabled {
 .address-main-sec {
   @apply bg-address-bg px-4 md:px-6 py-4 md:py-6 w-full md:w-[48%]  lg:w-[24.8125rem] relative z-[0] md:mr-4 order-2 md:order-none mt-4 md:mt-4 lg:mt-0;
 }
-.email{
+.email {
   padding-left: 15px;
 }
-.email:hover{
+.email:hover {
   text-decoration: underline;
 }
-.view-more-btn{
+.view-more-btn {
   border: 1px solid black;
   padding: 10px 100px;
   background-color: #eb0000;
@@ -774,9 +773,20 @@ nav[aria-label="Pagination"] button:disabled {
   margin: auto;
   display: flex;
 }
-.view-more-btn:hover{
+.view-more-btn:hover {
   background-color: #e9a7a5;
   color: black;
+}
+.detail-btn {
+  border: 1px solid white;
+  background-color: black;
+  padding: 10px;
+  margin-top: 70px;
+}
+.detail-btn:hover{
+  background-color: #e9a7a5;
+  color: black;
+  border: 1px solid black;
 }
 .address-main-sec .address-text {
   @apply text-lg md:text-lg;
@@ -1224,7 +1234,6 @@ nav[aria-label="Pagination"] button:disabled {
 }
 .locator-main .result.fixed-hover.active {
   @apply border-l-4 border-l-red;
-  
 }
 .locator-main .result.fixed-hover {
   @apply border-l-4 border-l-red;

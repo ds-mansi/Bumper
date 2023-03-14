@@ -84,6 +84,7 @@ export const config: TemplateConfig = {
       "alternatePhone",
       "c_service",
       "c_banner",
+      "c_detail",
       "c_faqSection.question",
       "c_faqSection.answer",
       "c_fAQPhoto",
@@ -316,6 +317,7 @@ const Location: Template<ExternalApiRenderData> = ({
     cityCoordinate,
     c_service,
     emails,
+    c_detail,
     name,
   } = document;
 
@@ -343,6 +345,9 @@ const Location: Template<ExternalApiRenderData> = ({
       </>
     );
   });
+
+  // detail section
+  //  console.log(c_detail.detailCTA.label,"object")
 
   let templateData = { document: document, __meta: __meta };
   let hoursSchema = [];
@@ -603,7 +608,19 @@ const Location: Template<ExternalApiRenderData> = ({
             ></Contact>
           </div>
           {/* contact end */}
-
+          {/* detail section start */}
+          <div className="flex bg-[#eb0000] border-solid border-2 border-[#eb0000]">
+            <div style={{ color: "white", padding: "50px" }}>
+              <h1>{c_detail.detailTitle}</h1>
+              <p style={{ marginTop: "45px" }}>{c_detail.detailDesc}</p>
+              <button className="detail-btn">
+                <a href={c_detail.detailCTA.link}>{c_detail.detailCTA.label}</a>
+              </button>
+            </div>
+            <img src={c_detail.detailImg.url} style={{ width: "50%",height:"70%" }} />
+          </div>
+          <br />
+          {/* detail section end */}
           {/* about section start */}
           <PageLayout
             aboutimg={_site?.c_about?.aboutImage}
